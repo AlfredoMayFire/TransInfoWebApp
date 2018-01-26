@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="transinfoLogin">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/Users/user/Downloads/TransInfoWebApp/bootstrap-3.3.7-dist/css/bootstrap.css" />
+  </head>
+  <body ng-controller="LoginController as login">
+    <script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+    <script type="text/javascript" src="transinfoLogin.js"></script>
+    <input type="text" ng-model="username">
+    </input>
+    <input type="text" ng-model="password">
+    </input>
+    <button class="btn-primary btn" ng-click="login.login()">Submit</button>
+
+  </body>
+</html>
