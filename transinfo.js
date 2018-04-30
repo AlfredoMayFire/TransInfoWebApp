@@ -134,6 +134,7 @@
     this.Info = Info;
     this.Stuff = {};
 
+
     this.SubmitPageOne = function(){
       page1.address = $scope.address;
       page1.crashType = $scope.selectedReport;
@@ -323,7 +324,7 @@
     this.getCaseInfo = function(){
       $http.get(url + "ListAccidentByCaseNumber/" + $scope.caseNumber)
       .then(function(response){
-        console.log(response.data["success"]);
+        //console.log(response.data["success"]);
         $scope.reportSearched = false;
 
         this.Stuff = response.data["success"].ReportList[0];
@@ -376,8 +377,9 @@
         .then(function(response){
           this.Stuff = response.data["success"].ReportList[0];
           page3 = response.data["success"].ReportList[0];
-          //console.log(this.Stuff);
-          $scope.firstLast = this.Stuff.name;
+          $scope.persons = response.data["success"];
+          //console.log($scope.persons);
+
           $scope.selectedGender = this.Stuff.gender;
           $scope.selectedLicenseType = this.Stuff.licenseType;
           $scope.numLicense = this.Stuff.licenceNumber;
@@ -386,8 +388,8 @@
           $scope.calle = this.Stuff.streetName;
           $scope.ciudad = this.Stuff.city;
           $scope.estadoPais = this.Stuff.stateCountry;
-          $scope.zip = this.Stuff.zipCode;
-          $scope.phone = this.Stuff.phoneNumber;
+          //$scope.zip = this.Stuff.zipCode;
+          //$scope.phone = this.Stuff.phoneNumber;
           $scope.selectedOrgan = this.Stuff.organDonor;
         });
 
@@ -396,12 +398,12 @@
 
 
           this.Stuff = response.data["success"].ReportList[0];
-          page4 = response.data["success"].ReportList[0];
+          page4 = response.data["success"];
 
           idPersonfk = this.Stuff.idPersonaFK;
           idVehiclefk = response.data["success"].ReportList[0].idNewVehicle;
 
-          //console.log(idVehiclefk + " over Here");
+          console.log(page4 );
           $scope.plateNumber = this.Stuff.plateNumber;
           $scope.vehicleJurisdiction = this.Stuff.vehicleJurisdiction;
           $scope.state = this.Stuff.state;

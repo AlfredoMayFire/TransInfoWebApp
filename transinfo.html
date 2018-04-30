@@ -2,7 +2,8 @@
 <html ng-app="transinfo">
   <head>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="/Users/user/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/transit_styles.css">
   </head>
   <body ng-cloak>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -27,10 +28,8 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
   -->
 
-
-
     <section  ng-cloak ng-controller="PanelController as panel">
-
+      <div class="form-menu">
       <ul layout-align="center" class="nav nav-pills text-center" ng-hide="reportSearched">
         <li ng-class="{active: panel.isSelected(1)}">
            <a href ng-click="panel.selectTab(1)">Accident</a>
@@ -51,8 +50,10 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           <a href ng-click="panel.selectTab(6)">Narrativa</a>
         </li>
       </ul>
-
+    </div>
+  <div class="form-container">
       <div class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
+        <div  class = "card-form">
         <h1>Información Básica del Accidente</h1>
 
 
@@ -61,7 +62,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Tipo de Accidente</label>
               <br />
             <input  class="form-group"value="{{selectedReport}}"> </input><br />
-            <select ng-model="selectedReport" ng-cloak ng-options="x for x in data2"></select>
+            <select class="form-control" ng-model="selectedReport" ng-cloak ng-options="x for x in data2"></select>
             <!-- <div ng-dropdown-multiselect="" options="data2" selected-model="example1model" settings="settings" ></div> -->
           </div>
 
@@ -85,7 +86,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <br />
 
             <input  class="form-group"value="{{selectedState}}"></input><br />
-            <select ng-model="selectedState" ng-cloak ng-options="x for x in example1data"></select>
+            <select class="form-control" class="form-control" ng-model="selectedState" ng-cloak ng-options="x for x in example1data"></select>
             <!-- <div class="ng-cloak" ng-cloak ng-dropdown-multiselect="" settings="settings" options="example1data" selected-model="model2"></div> -->
           </div>
 
@@ -93,14 +94,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Municipio</label>
               <br />
               <input  class="form-group"value="{{selectedCounty}}"> </input><br />
-              <select ng-model="selectedCounty" ng-cloak ng-options="x for x in data3"></select>
+              <select class="form-control" ng-model="selectedCounty" ng-cloak ng-options="x for x in data3"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data3" selected-model="model3"></div> -->
           </div>
           <div class="col-md-4">
               <label>Cerca de...</label>
               <br />
               <input  class="form-group"value="{{selectedNear}}"> </input><br />
-              <select ng-model="selectedNear" ng-cloak ng-options="x for x in data4"></select>
+              <select class="form-control" ng-model="selectedNear" ng-cloak ng-options="x for x in data4"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data4" selected-model="model4"></div> -->
           </div>
         </div>
@@ -121,7 +122,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Medida</label>
               <br />
               <input  class="form-group"value="{{selectedMeasure}}"> </input><br />
-              <select ng-model="selectedMeasure" ng-cloak ng-options="x for x in data5"></select>
+              <select class="form-control" ng-model="selectedMeasure" ng-cloak ng-options="x for x in data5"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data5" selected-model="model5"></div> -->
           </div>
         </div>
@@ -130,7 +131,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Punto Cardinal</label>
               <br />
             <input  class="form-group"value="{{selectedCardinal}}"> </input><br />
-            <select ng-model="selectedCardinal" ng-cloak ng-options="x for x in data8"></select>
+            <select class="form-control" ng-model="selectedCardinal" ng-cloak ng-options="x for x in data8"></select>
             <!-- <div ng-dropdown-multiselect="" settings="settings" options="data8" selected-model="model8"></div> -->
           </div>
 
@@ -138,7 +139,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Tipo de Propiedad</label>
               <br />
               <input  class="form-group"value="{{selectedProperty}}"> </input><br />
-              <select ng-model="selectedProperty" ng-cloak ng-options="x for x in data6"></select>
+              <select class="form-control" ng-model="selectedProperty" ng-cloak ng-options="x for x in data6"></select>
 
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data6" selected-model="model6"></div> -->
           </div>
@@ -146,7 +147,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Tipo de Zona</label>
               <br />
               <input  class="form-group"value="{{selectedZoneType}}"> </input><br />
-              <select ng-model="selectedZoneType" ng-cloak ng-options="x for x in data7"></select>
+              <select class="form-control" ng-model="selectedZoneType" ng-cloak ng-options="x for x in data7"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data7" selected-model="model7"></div> -->
           </div>
         </div>
@@ -155,7 +156,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Ubicación</label>
               <br />
             <input  class="form-group"value="{{selectedLocation}}"> </input><br />
-            <select ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
+            <select class="form-control" ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
             <!-- <div ng-dropdown-multiselect="" settings="settings" options="data9" selected-model="model9"></div> -->
           </div>
 
@@ -172,30 +173,28 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div> -->
 
-          <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button>
+        <div class="btn-cntr">  <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button> </div>
 
         </div>
-
-
-
-
+      </div>
       </div> <!--End of panel 1 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(2)" id="panel2">
+        <div  class = "card-form">
         <h1>Condiciones Básicas del Accidente</h1>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Evento Relacionado al Mayor daño:Tipo de colisión</label>
               <br />
             <input  class="form-group"value="{{selectedCollision}}"> </input><br />
-            <select ng-model="selectedCollision" ng-cloak ng-options="x for x in example1model"></select>
+            <select class="form-control" ng-model="selectedCollision" ng-cloak ng-options="x for x in example1model"></select>
           </div>
 
           <div class="col-md-4">
               <label>Evento</label>
               <br />
               <input  class="form-group"value="{{selectedEvent}}"> </input><br />
-              <select ng-model="selectedEvent" ng-cloak ng-options="x for x in model2"></select>
+              <select class="form-control" ng-model="selectedEvent" ng-cloak ng-options="x for x in model2"></select>
 
           </div>
           <div class="col-md-4">
@@ -203,131 +202,130 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <br />
               <input  class="form-group"value="{{selectedLocationE}}"> </input>
               <br />
-              <select ng-model="selectedLocationE" ng-cloak ng-options="x for x in model3"></select>
+              <select class="form-control" ng-model="selectedLocationE" ng-cloak ng-options="x for x in model3"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Forma de Colisión</label>
               <br />
             <input  class="form-group"value="{{selectedCollisionForm}}"> </input><br />
-            <select ng-model="selectedCollisionForm" ng-cloak ng-options="x for x in model4"></select>
+            <select class="form-control" ng-model="selectedCollisionForm" ng-cloak ng-options="x for x in model4"></select>
           </div>
 
           <div class="col-md-4">
               <label>Clima #1</label>
               <br />
               <input  class="form-group"value="{{selectedWeather1}}"> </input><br />
-              <select ng-model="selectedWeather1" ng-cloak ng-options="x for x in model5"></select>
+              <select class="form-control" ng-model="selectedWeather1" ng-cloak ng-options="x for x in model5"></select>
 
           </div>
           <div class="col-md-4">
               <label>Clima #2</label>
               <br />
               <input  class="form-group"value="{{selectedWeather2}}"> </input><br />
-              <select ng-model="selectedWeather2" ng-cloak ng-options="x for x in model6"></select>
+              <select class="form-control" ng-model="selectedWeather2" ng-cloak ng-options="x for x in model6"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Visibilidad</label>
               <br />
             <input  class="form-group"value="{{selectedVisibility}}"> </input><br />
-            <select ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
+            <select class="form-control" ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
           </div>
 
           <div class="col-md-4">
               <label>Pavimento</label>
               <br />
               <input  class="form-group"value="{{selectedPavimento}}"> </input><br />
-              <select ng-model="selectedPavimento" ng-cloak ng-options="x for x in model8"></select>
 
           </div>
           <div class="col-md-4">
               <label>Ambiental</label>
               <br />
               <input  class="form-group"value="{{selectedAmbiente}}"> </input><br />
-              <select ng-model="selectedAmbiente" ng-cloak ng-options="x for x in model9"></select>
+              <select class="form-control" ng-model="selectedAmbiente" ng-cloak ng-options="x for x in model9"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Carretera</label>
               <br />
             <input  class="form-group"value="{{selectedRoadCircum}}"> </input><br />
-            <select ng-model="selectedRoadCircum" ng-cloak ng-options="x for x in model10"></select>
+            <select class="form-control" ng-model="selectedRoadCircum" ng-cloak ng-options="x for x in model10"></select>
           </div>
 
           <div class="col-md-4">
               <label>Intersección a Desnivel</label>
               <br />
               <input  class="form-group"value="{{selectedIntersection}}"> </input><br />
-              <select ng-model="selectedIntersection" ng-cloak ng-options="x for x in model11"></select>
+              <select class="form-control" ng-model="selectedIntersection" ng-cloak ng-options="x for x in model11"></select>
 
           </div>
           <div class="col-md-4">
               <label>Lugar Especifico</label>
               <br />
               <input  class="form-group"value="{{selectedSpecificPlace}}"> </input><br />
-              <select ng-model="selectedSpecificPlace" ng-cloak ng-options="x for x in model12"></select>
+              <select class="form-control" ng-model="selectedSpecificPlace" ng-cloak ng-options="x for x in model12"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Relacionado a Omnibus Escolar</label>
               <br />
             <input  class="form-group"value="{{selectedBusField}}"> </input><br />
-            <select ng-model="selectedBusField" ng-cloak ng-options="x for x in model13"></select>
+            <select class="form-control" ng-model="selectedBusField" ng-cloak ng-options="x for x in model13"></select>
           </div>
 
           <div class="col-md-4">
               <label>Tipo de Intersección</label>
               <br />
               <input  class="form-group"value="{{selectedIntersectionType}}"> </input><br />
-              <select ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
+              <select class="form-control" ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
 
           </div>
           <div class="col-md-4">
               <label>¿En o cerca de Csontrucción?</label>
               <br />
               <input  class="form-group"value="{{selectedConstructionRelated}}"> </input><br />
-              <select ng-model="selectedConstructionRelated" ng-cloak ng-options="x for x in model15"></select>
+              <select class="form-control" class="form-control" ng-model="selectedConstructionRelated" ng-cloak ng-options="x for x in model15"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Tipo de Zona de Trabajo</label>
               <br />
             <input  class="form-group"value="{{selectedWorkTypeZone}}"> </input><br />
-            <select ng-model="selectedWorkTypeZone" ng-cloak ng-options="x for x in model17"></select>
+            <select class="form-control" ng-model="selectedWorkTypeZone" ng-cloak ng-options="x for x in model17"></select>
           </div>
 
           <div class="col-md-4">
               <label>Localizacion del Accidente</label>
               <br />
               <input  class="form-group"value="{{selectedWorkLocation}}"> </input><br />
-              <select ng-model="selectedWorkLocation" ng-cloak ng-options="x for x in model16"></select>
+              <select class="form-control" ng-model="selectedWorkLocation" ng-cloak ng-options="x for x in model16"></select>
 
           </div>
           <div class="col-md-4">
               <label>Policia Presente en el Area</label>
               <br />
               <input  class="form-group"value="{{selectedPolicePresence}}"> </input><br />
-              <select ng-model="selectedPolicePresence" ng-cloak ng-options="x for x in model18"></select>
+              <select class="form-control" ng-model="selectedPolicePresence" ng-cloak ng-options="x for x in model18"></select>
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Trabajadores Presentes</label>
               <br />
             <input  class="form-group"value="{{selectedWorkersPresence}}"> </input><br />
-            <select ng-model="selectedWorkersPresence" ng-cloak ng-options="x for x in model19"></select>
+            <select class="form-control" ng-model="selectedWorkersPresence" ng-cloak ng-options="x for x in model19"></select>
           </div>
 
           <!-- <div class="col-md-4">
@@ -344,31 +342,34 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
 
           </div> -->
+            <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageTwo()">Submit</button>
         </div>
-        <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageTwo()">Submit</button>
+
+      </div>
       </div>  <!--End of panel 2 row/col grid system-->
 
-      <div class="panel" ng-show="panel.isSelected(3)" id="panel3">
-        <h1>Persona</h1>
-        <div class="row container-fluid">
-          <div class="col-md-4">
+      <div class="panel" ng-show="panel.isSelected(3)" id="panel3" >
+        <div ng-repeat="person in persons.ReportList" class = "card-form">
+        <h1 >Persona</h1>
+        <div class="row container-fluid" >
+          <div  class="col-md-4" >
               <label>Nombre y Apellido</label>
               <br />
-            <input ng-model="firstLast" class="form-group"value="{{firstLast}}"> </input>
+            <input class="form-group"value="{{person.name}}" > </input>
           </div>
 
           <div class="col-md-4">
               <label>Genero</label>
               <br />
-              <input  class="form-group"value="{{selectedGender}}"> </input> <br />
-              <select ng-model="selectedGender" ng-cloak ng-options="x for x in info1"></select>
+              <input  class="form-group"value="{{person.gender}}"> </input> <br />
+              <select class="form-control" ng-model="selectedGender" ng-cloak ng-options="x for x in info1"></select>
 
           </div>
-          <div class="col-md-4">
+          <div  class="col-md-4">
               <label>Tipo de Licencia</label>
               <br />
-              <input  class="form-group"value="{{selectedLicenseType}}"> </input><br />
-              <select ng-model="selectedLicenseType" ng-cloak ng-options="x for x in info2"></select>
+              <input  class="form-group"value="{{person.licenseType}}"> </input><br />
+              <select class="form-control" ng-model="selectedLicenseType" ng-cloak ng-options="x for x in info2"></select>
 
           </div>
         </div>
@@ -376,19 +377,19 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           <div class="col-md-4">
               <label>Numero de Licencia</label>
               <br />
-            <input ng-model="numLicense"  class="form-group"value="{{numLicense}}"> </input>
+            <input  class="form-group"value="{{person.licenceNumber}}"> </input>
           </div>
 
           <div class="col-md-4">
               <label>Fecha de Expiración</label>
               <br />
-              <input ng-model="expDate" class="form-group"value="{{expDate}}"> </input>
+              <input  class="form-group"value="{{person.expirationDate}}"> </input>
 
           </div>
           <div class="col-md-4">
               <label>Urbanización/Barrío</label>
               <br />
-              <input ng-model="urb"  class="form-group"value="{{urb}}"> </input>
+              <input   class="form-group"value="{{person.neighborhood}}"> </input>
 
           </div>
         </div>
@@ -396,19 +397,19 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           <div class="col-md-4">
               <label>Calle</label>
               <br />
-            <input ng-model="calle" class="form-group"value="{{calle}}"> </input>
+            <input class="form-group"value="{{person.streetName}}"> </input>
           </div>
 
           <div class="col-md-4">
               <label>Ciudad</label>
               <br />
-              <input ng-model="ciudad" class="form-group"value="{{ciudad}}"> </input>
+              <input  class="form-group"value="{{person.city}}"> </input>
 
           </div>
           <div class="col-md-4">
               <label>Estado/Pais</label>
               <br />
-              <input ng-model="estadoPais"  class="form-group"value="{{estadoPais}}"> </input>
+              <input  class="form-group"value="{{person.stateCountry}}"> </input>
 
           </div>
         </div>
@@ -416,24 +417,26 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           <div class="col-md-4">
               <label>Zip Code</label>
               <br />
-            <input ng-model="zip"  class="form-group"value="{{zip}}"> </input>
+            <input class="form-group"value="{{person.zipCode}}"> </input>
           </div>
 
           <div class="col-md-4">
               <label>Telefono</label>
               <br />
-              <input ng-model="phone" class="form-group"value="{{phone}}"> </input>
+              <input  class="form-group"value="{{person.phoneNumber}}"> </input>
 
           </div>
-          <div class="col-md-4">
-              <label>Donante de Órganos</label>
+          <div  class="col-md-4" >
+              <label >Donante de Órganos</label>
               <br />
-              <input  class="form-group"value="{{selectedOrgan}}"> </input><br />
-              <select ng-model="selectedOrgan" ng-cloak ng-options="x for x in info3"></select>
+              <input  class="form-group"value="{{person.organDonor}}"> </input><br />
+              <select class="form-control" ng-model="selectedOrgan" ng-cloak ng-options="x for x in info3"></select>
 
           </div>
           <button class="btn-primary btn" ng-click="panel.SubmitPageThree()">Submit</button>
         </div>
+      </div>
+      <div  class = "card-form">
         <h1>Vehiculo</h1>
 
         <div class="row container-fluid">
@@ -447,7 +450,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Jurisdicción del Vehiculo</label>
               <br />
               <input  class="form-group"value="{{vehicleJurisdiction}}"> </input><br />
-              <select ng-model="vehicleJurisdiction" ng-cloak ng-options="x for x in info4"></select>
+              <select class="form-control" ng-model="vehicleJurisdiction" ng-cloak ng-options="x for x in info4"></select>
 
           </div>
           <div class="col-md-4">
@@ -519,10 +522,11 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
 
         <button class="btn-primary btn" ng-click="panel.SubmitPageFour()">Submit</button>
-
+      </div>
       </div><!--End of panel 3 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(4)" id="panel4">
+        <div class="card-form">
         <h1>Informacion del Vehículo</h1>
 
         <div class="row container-fluid">
@@ -530,21 +534,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Tipo de Vehiculo de Motor</label>
               <br />
             <input  class="form-group"value="{{selectedVehicleType}}"> </input><br />
-            <select ng-model="selectedVehicleType" ng-cloak ng-options="x for x in information1"></select>
+            <select class="form-control" ng-model="selectedVehicleType" ng-cloak ng-options="x for x in information1"></select>
           </div>
 
           <div class="col-md-4">
               <label>Direccion de Viaje antes del Choque</label>
               <br />
               <input  class="form-group"value="{{selectedTravelDirection}}"> </input><br />
-              <select ng-model="selectedTravelDirection" ng-cloak ng-options="x for x in information2"></select>
+              <select class="form-control" ng-model="selectedTravelDirection" ng-cloak ng-options="x for x in information2"></select>
 
           </div>
           <div class="col-md-4">
               <label>Funcion especial del Vehiculo de motor en transporte</label>
               <br />
               <input  class="form-group"value="{{selectedSpecialFunction}}"> </input><br />
-              <select ng-model="selectedSpecialFunction" ng-cloak ng-options="x for x in information3"></select>
+              <select class="form-control" ng-model="selectedSpecialFunction" ng-cloak ng-options="x for x in information3"></select>
 
           </div>
         </div>
@@ -553,7 +557,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Uso de Vehiculo de motor de emergencia</label>
               <br />
             <input  class="form-group"value="{{selectedEmergencyMotorVehicle}}"> </input><br />
-            <select ng-model="selectedEmergencyMotorVehicle" ng-cloak ng-options="x for x in information4"></select>
+            <select class="form-control" ng-model="selectedEmergencyMotorVehicle" ng-cloak ng-options="x for x in information4"></select>
           </div>
 
           <div class="col-md-4">
@@ -574,7 +578,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Maniobra/accion del vehiculo de motor</label>
               <br />
             <input  class="form-group"value="{{selectedAction}}"> </input><br />
-            <select ng-model="selectedAction" ng-cloak ng-options="x for x in information5"></select>
+            <select class="form-control" ng-model="selectedAction" ng-cloak ng-options="x for x in information5"></select>
           </div>
 
           <div class="col-md-4">
@@ -587,7 +591,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Descripcion de la carretera</label>
               <br />
               <input  class="form-group"value="{{selectedRoadDescription}}"> </input><br />
-              <select ng-model="selectedRoadDescription" ng-cloak ng-options="x for x in information6"></select>
+              <select class="form-control" ng-model="selectedRoadDescription" ng-cloak ng-options="x for x in information6"></select>
 
           </div>
         </div>
@@ -596,14 +600,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Alineamiento</label>
               <br />
             <input  class="form-group"value="{{selectedAlignment}}"> </input><br />
-            <select ng-model="selectedAlignment" ng-cloak ng-options="x for x in information7"></select>
+            <select class="form-control" ng-model="selectedAlignment" ng-cloak ng-options="x for x in information7"></select>
           </div>
 
           <div class="col-md-4">
               <label>Inclinacion</label>
               <br />
               <input  class="form-group"value="{{selectedInclination}}"> </input><br />
-              <select ng-model="selectedInclination" ng-cloak ng-options="x for x in information8"></select>
+              <select class="form-control" ng-model="selectedInclination" ng-cloak ng-options="x for x in information8"></select>
 
           </div>
           <div class="col-md-4">
@@ -618,14 +622,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Categoria de Carril</label>
               <br />
             <input  class="form-group"value="{{selectedTypeCategoryLane}}"> </input><br />
-            <select ng-model="selectedTypeCategoryLane" ng-cloak ng-options="x for x in information9"></select>
+            <select class="form-control" ng-model="selectedTypeCategoryLane" ng-cloak ng-options="x for x in information9"></select>
           </div>
 
           <div class="col-md-4">
               <label>Tipo de Carril</label>
               <br />
               <input  class="form-group"value="{{selectedLaneType}}"> </input><br />
-              <select ng-model="selectedLaneType" ng-cloak ng-options="x for x in information10"></select>
+              <select class="form-control" ng-model="selectedLaneType" ng-cloak ng-options="x for x in information10"></select>
 
           </div>
           <div class="col-md-4">
@@ -633,7 +637,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <br />
               <input  class="form-group"value="{{selectedTCDT}}"> </input>
               <br />
-              <select ng-model="selectedTCDT" ng-cloak ng-options="x for x in information11"></select>
+              <select class="form-control" ng-model="selectedTCDT" ng-cloak ng-options="x for x in information11"></select>
 
           </div>
         </div>
@@ -642,21 +646,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>¿En operacion o perdido?</label>
               <br />
             <input  class="form-group"value="{{selectedTCDW}}"> </input><br />
-            <select ng-model="selectedTCDW" ng-cloak ng-options="x for x in information12"></select>
+            <select class="form-control" ng-model="selectedTCDW" ng-cloak ng-options="x for x in information12"></select>
           </div>
 
           <div class="col-md-4">
               <label>Cadena de Eventos 1</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEventCategories}}"> </input><br />
-              <select ng-model="selectedHarmfulEventCategories" ng-cloak ng-options="x for x in information13"></select>
+              <select class="form-control" ng-model="selectedHarmfulEventCategories" ng-cloak ng-options="x for x in information13"></select>
 
           </div>
           <div class="col-md-4">
               <label>Cadena de Eventos 2</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEventCategories1}}"> </input><br />
-              <select ng-model="selectedHarmfulEventCategories1" ng-cloak ng-options="x for x in information13"></select>
+              <select class="form-control" ng-model="selectedHarmfulEventCategories1" ng-cloak ng-options="x for x in information13"></select>
 
           </div>
         </div>
@@ -665,21 +669,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Cadena de Eventos 3</label>
               <br />
             <input  class="form-group"value="{{selectedHarmfulEventCategories2}}"> </input><br />
-            <select ng-model="selectedHarmfulEventCategories2" ng-cloak ng-options="x for x in information13"></select>
+            <select class="form-control" ng-model="selectedHarmfulEventCategories2" ng-cloak ng-options="x for x in information13"></select>
           </div>
 
           <div class="col-md-4">
               <label>Cadena de Eventos 4</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEventCategories3}}"> </input><br />
-              <select ng-model="selectedHarmfulEventCategories3" ng-cloak ng-options="x for x in information13"></select>
+              <select class="form-control" ng-model="selectedHarmfulEventCategories3" ng-cloak ng-options="x for x in information13"></select>
 
           </div>
           <div class="col-md-4">
               <label>Cadena de Eventos 5</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEvent}}"> </input><br />
-              <select ng-model="selectedHarmfulEvent" ng-cloak ng-options="x for x in information14"></select>
+              <select class="form-control" ng-model="selectedHarmfulEvent" ng-cloak ng-options="x for x in information14"></select>
 
           </div>
         </div>
@@ -688,21 +692,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Cadena de Eventos 6</label>
               <br />
             <input  class="form-group"value="{{selectedHarmfulEvent1}}"> </input><br />
-            <select ng-model="selectedHarmfulEvent1" ng-cloak ng-options="x for x in information14"></select>
+            <select class="form-control" ng-model="selectedHarmfulEvent1" ng-cloak ng-options="x for x in information14"></select>
           </div>
 
           <div class="col-md-4">
               <label>Cadena de Eventos 7</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEvent2}}"> </input><br />
-              <select ng-model="selectedHarmfulEvent2" ng-cloak ng-options="x for x in information14"></select>
+              <select class="form-control" ng-model="selectedHarmfulEvent2" ng-cloak ng-options="x for x in information14"></select>
 
           </div>
           <div class="col-md-4">
               <label>Cadena de Eventos 8</label>
               <br />
               <input  class="form-group"value="{{selectedHarmfulEvent3}}"> </input><br />
-              <select ng-model="selectedHarmfulEvent3" ng-cloak ng-options="x for x in information14"></select>
+              <select class="form-control" ng-model="selectedHarmfulEvent3" ng-cloak ng-options="x for x in information14"></select>
 
           </div>
         </div>
@@ -711,21 +715,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Uso del Bus</label>
               <br />
             <input  class="form-group"value="{{selectedBusUse}}"> </input><br />
-            <select ng-model="selectedBusUse" ng-cloak ng-options="x for x in information15"></select>
+            <select class="form-control" ng-model="selectedBusUse" ng-cloak ng-options="x for x in information15"></select>
           </div>
 
           <div class="col-md-4">
               <label>Abandono el lugar?</label>
               <br />
               <input  class="form-group"value="{{selectedHitAndRun}}"> </input><br />
-              <select ng-model="selectedHitAndRun" ng-cloak ng-options="x for x in information16"></select>
+              <select class="form-control" ng-model="selectedHitAndRun" ng-cloak ng-options="x for x in information16"></select>
 
           </div>
           <div class="col-md-4">
               <label>Remolcado por Daños</label>
               <br />
               <input  class="form-group"value="{{selectedTowedBy}}"> </input><br />
-              <select ng-model="selectedTowedBy" ng-cloak ng-options="x for x in information17"></select>
+              <select class="form-control" ng-model="selectedTowedBy" ng-cloak ng-options="x for x in information17"></select>
 
           </div>
         </div>
@@ -734,21 +738,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Defectos mecánicos del vehiculo 1</label>
               <br />
             <input  class="form-group"value="{{selectedDefects1}}"> </input><br />
-            <select ng-model="selectedDefects1" ng-cloak ng-options="x for x in information18"></select>
+            <select class="form-control" ng-model="selectedDefects1" ng-cloak ng-options="x for x in information18"></select>
           </div>
 
           <div class="col-md-4">
               <label>Defectos mecánicos del vehiculo 2</label>
               <br />
               <input  class="form-group"value="{{selectedDefects2}}"> </input><br />
-              <select ng-model="selectedDefects2" ng-cloak ng-options="x for x in information18"></select>
+              <select class="form-control" ng-model="selectedDefects2" ng-cloak ng-options="x for x in information18"></select>
 
           </div>
           <div class="col-md-4">
               <label>Punto inicial de contacto</label>
               <br />
               <input  class="form-group"value="{{selectedContactPoints}}"> </input><br />
-              <select ng-model="selectedContactPoints" ng-cloak ng-options="x for x in information19"></select>
+              <select class="form-control" ng-model="selectedContactPoints" ng-cloak ng-options="x for x in information19"></select>
 
           </div>
         </div>
@@ -757,21 +761,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Areas Afectadas</label>
               <br />
             <input  class="form-group"value="{{selectedAffectedAreas}}"> </input><br />
-            <select ng-model="selectedAffectedAreas" ng-cloak ng-options="x for x in information20"></select>
+            <select class="form-control" ng-model="selectedAffectedAreas" ng-cloak ng-options="x for x in information20"></select>
           </div>
 
           <div class="col-md-4">
               <label>Grados del daño</label>
               <br />
               <input  class="form-group"value="{{selectedDamageExtent}}"> </input><br />
-              <select ng-model="selectedDamageExtent" ng-cloak ng-options="x for x in information21"></select>
+              <select class="form-control" ng-model="selectedDamageExtent" ng-cloak ng-options="x for x in information21"></select>
 
           </div>
           <div class="col-md-4">
               <label>Uso del vehiculo comercial</label>
               <br />
               <input  class="form-group"value="{{selectedOfficialVehicle}}"> </input><br />
-              <select ng-model="selectedOfficialVehicle" ng-cloak ng-options="x for x in information22"></select>
+              <select class="form-control" ng-model="selectedOfficialVehicle" ng-cloak ng-options="x for x in information22"></select>
 
           </div>
         </div>
@@ -780,21 +784,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Vehiculo en movimiento</label>
               <br />
             <input  class="form-group"value="{{selectedVehicleMovement}}"> </input><br />
-            <select ng-model="selectedVehicleMovement" ng-cloak ng-options="x for x in information23"></select>
+            <select class="form-control" ng-model="selectedVehicleMovement" ng-cloak ng-options="x for x in information23"></select>
           </div>
 
           <div class="col-md-4">
               <label>Conductor autorizado</label>
               <br />
               <input  class="form-group"value="{{selectedAuthorizedDriver}}"> </input><br />
-              <select ng-model="selectedAuthorizedDriver" ng-cloak ng-options="x for x in information24"></select>
+              <select class="form-control" ng-model="selectedAuthorizedDriver" ng-cloak ng-options="x for x in information24"></select>
 
           </div>
           <div class="col-md-4">
               <label>La inspeccion esta al dia</label>
               <br />
               <input  class="form-group"value="{{selectedInspectionUpToDate}}"> </input><br />
-              <select ng-model="selectedInspectionUpToDate" ng-cloak ng-options="x for x in information24"></select>
+              <select class="form-control" ng-model="selectedInspectionUpToDate" ng-cloak ng-options="x for x in information24"></select>
 
           </div>
         </div>
@@ -803,14 +807,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Permiso especial (Permiso de arrastre DTOP/DOT)</label>
               <br />
             <input  class="form-group"value="{{selectedSpecialPermission}}"> </input><br />
-            <select ng-model="selectedSpecialPermission" ng-cloak ng-options="x for x in information24"></select>
+            <select class="form-control" ng-model="selectedSpecialPermission" ng-cloak ng-options="x for x in information24"></select>
           </div>
 
           <div class="col-md-4">
               <label>Peso bruto(incluyendo remolques)</label>
               <br />
               <input  class="form-group"value="{{selectedPesoBruto}}"> </input><br />
-              <select ng-model="selectedPesoBruto" ng-cloak ng-options="x for x in information27"></select>
+              <select class="form-control" ng-model="selectedPesoBruto" ng-cloak ng-options="x for x in information27"></select>
 
           </div>
           <div class="col-md-4">
@@ -826,21 +830,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Configuracion del vehiculo</label>
               <br />
             <input  class="form-group"value="{{selectedConfiguration}}"> </input><br />
-            <select ng-model="selectedConfiguration" ng-cloak ng-options="x for x in information28"></select>
+            <select class="form-control" ng-model="selectedConfiguration" ng-cloak ng-options="x for x in information28"></select>
           </div>
 
           <div class="col-md-4">
               <label>Tipo vehiculo de carga</label>
               <br />
               <input  class="form-group"value="{{selectedCargoVehicleType}}"> </input><br />
-              <select ng-model="selectedCargoVehicleType" ng-cloak ng-options="x for x in information29"></select>
+              <select class="form-control" ng-model="selectedCargoVehicleType" ng-cloak ng-options="x for x in information29"></select>
 
           </div>
           <div class="col-md-4">
               <label>¿Vehiculo contiene material peligroso?</label>
               <br />
               <input  class="form-group"value="{{selectedHazardousInvolved}}"> </input><br />
-              <select ng-model="selectedHazardousInvolved" ng-cloak ng-options="x for x in information30"></select>
+              <select class="form-control" ng-model="selectedHazardousInvolved" ng-cloak ng-options="x for x in information30"></select>
 
           </div>
         </div>
@@ -855,37 +859,38 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>¿Hubo derrame de material peligroso debido al choque?</label>
               <br />
               <input  class="form-group"value="{{selectedHazardousReleased}}"> </input><br />
-              <select ng-model="selectedHazardousReleased" ng-cloak ng-options="x for x in information31"></select>
+              <select class="form-control" ng-model="selectedHazardousReleased" ng-cloak ng-options="x for x in information31"></select>
 
           </div>
 
         </div>
 
         <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageFive()">Submit</button>
-
+      </div>
       </div><!--End of panel 4 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(5)" id="panel5">
+        <div class="card-form">
         <h1>Informacion solo para ocupantes del vehiculo</h1>
         <div class="row container-fluid">
           <div class="col-md-4">
               <label>Fila</label>
               <br />
             <input  class="form-group"value="{{rows}}"> </input><br />
-            <select ng-model="rows" ng-cloak ng-options="x for x in dataInfo1"></select>
+            <select class="form-control" ng-model="rows" ng-cloak ng-options="x for x in dataInfo1"></select>
           </div>
 
           <div class="col-md-4">
               <label>Asiento</label>
               <br />
               <input  class="form-group"value="{{seats}}"> </input><br />
-              <select ng-model="seats" ng-cloak ng-options="x for x in dataInfo2"></select>
+              <select class="form-control" ng-model="seats" ng-cloak ng-options="x for x in dataInfo2"></select>
           </div>
           <div class="col-md-4">
               <label>Otra Localizacion</label>
               <br />
               <input  class="form-group"value="{{seatingOthers}}"> </input><br />
-              <select ng-model="seatingOthers" ng-cloak ng-options="x for x in dataInfo3"></select>
+              <select class="form-control" ng-model="seatingOthers" ng-cloak ng-options="x for x in dataInfo3"></select>
 
           </div>
         </div>
@@ -900,14 +905,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Sistema de Retencion</label>
               <br />
               <input  class="form-group"value="{{restraintSystems}}"> </input><br />
-              <select ng-model="restraintSystems" ng-cloak ng-options="x for x in dataInfo4"></select>
+              <select class="form-control" ng-model="restraintSystems" ng-cloak ng-options="x for x in dataInfo4"></select>
 
           </div>
           <div class="col-md-4">
               <label>Activacion de bolsas de aire</label>
               <br />
               <input  class="form-group"value="{{airbagDeployed}}"> </input><br />
-              <select ng-model="airbagDeployed" ng-cloak ng-options="x for x in dataInfo5"></select>
+              <select class="form-control" ng-model="airbagDeployed" ng-cloak ng-options="x for x in dataInfo5"></select>
           </div>
         </div>
         <div class="row container-fluid">
@@ -915,20 +920,20 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Expulsion</label>
               <br />
             <input  class="form-group"value="{{ejections}}"> </input><br />
-            <select ng-model="ejections" ng-cloak ng-options="x for x in dataInfo6"></select>
+            <select class="form-control" ng-model="ejections" ng-cloak ng-options="x for x in dataInfo6"></select>
           </div>
 
           <div class="col-md-4">
               <label>Relacionado a velocidad</label>
               <br />
               <input  class="form-group"value="{{speedingSuspected}}"> </input><br />
-              <select ng-model="speedingSuspected" ng-cloak ng-options="x for x in dataInfo7"></select>
+              <select class="form-control" ng-model="speedingSuspected" ng-cloak ng-options="x for x in dataInfo7"></select>
           </div>
           <div class="col-md-4">
               <label>Extraccion</label>
               <br />
               <input  class="form-group"value="{{extrications}}"> </input><br />
-              <select ng-model="extrications" ng-cloak ng-options="x for x in dataInfo20"></select>
+              <select class="form-control" ng-model="extrications" ng-cloak ng-options="x for x in dataInfo20"></select>
           </div>
         </div>
         <div class="row container-fluid">
@@ -936,21 +941,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Circunstancias del conductor antes del accidente</label>
               <br />
             <input  class="form-group"value="{{contribActionsCircumstances}}"> </input><br />
-            <select ng-model="contribActionsCircumstances" ng-cloak ng-options="x for x in dataInfo8"></select>
+            <select class="form-control" ng-model="contribActionsCircumstances" ng-cloak ng-options="x for x in dataInfo8"></select>
           </div>
 
           <div class="col-md-4">
               <label>Conducto distraido por</label>
               <br />
               <input  class="form-group"value="{{distractedBy}}"> </input><br />
-              <select ng-model="distractedBy" ng-cloak ng-options="x for x in dataInfo9"></select>
+              <select class="form-control" ng-model="distractedBy" ng-cloak ng-options="x for x in dataInfo9"></select>
 
           </div>
           <div class="col-md-4">
               <label>Condiciones al momento del accidente</label>
               <br />
               <input  class="form-group"value="{{conditions}}"> </input><br />
-              <select ng-model="conditions" ng-cloak ng-options="x for x in dataInfo10"></select>
+              <select class="form-control" ng-model="conditions" ng-cloak ng-options="x for x in dataInfo10"></select>
           </div>
         </div>
         <div class="row container-fluid">
@@ -958,14 +963,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Equipo de seguridad utilizada(motociclista)</label>
               <br />
             <input  class="form-group"value="{{safetyEquipments}}"> </input><br />
-            <select ng-model="safetyEquipments" ng-cloak ng-options="x for x in dataInfo11"></select>
+            <select class="form-control" ng-model="safetyEquipments" ng-cloak ng-options="x for x in dataInfo11"></select>
           </div>
 
           <div class="col-md-4">
               <label>Se sospecha el uso de alcohol</label>
               <br />
               <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
-              <select ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
+              <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
           </div>
           <div class="col-md-4">
               <label>Tipo de Vehiculo de Motor</label>
@@ -979,20 +984,20 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Estado de la prueba</label>
               <br />
             <input  class="form-group"value="{{testStatuses}}"> </input><br />
-            <select ng-model="testStatuses" ng-cloak ng-options="x for x in dataInfo12"></select>
+            <select class="form-control" ng-model="testStatuses" ng-cloak ng-options="x for x in dataInfo12"></select>
           </div>
 
           <div class="col-md-4">
               <label>Tipo de la prueba</label>
               <br />
               <input  class="form-group"value="{{drugTestTypes}}"> </input><br />
-              <select ng-model="drugTestTypes" ng-cloak ng-options="x for x in dataInfo13"></select>
+              <select class="form-control" ng-model="drugTestTypes" ng-cloak ng-options="x for x in dataInfo13"></select>
           </div>
           <div class="col-md-4">
               <label>Resultado de la prueba</label>
               <br />
               <input  class="form-group"value="{{alcoholTestResults}}"> </input><br />
-              <select ng-model="alcoholTestResults" ng-cloak ng-options="x for x in dataInfo14"></select>
+              <select class="form-control" ng-model="alcoholTestResults" ng-cloak ng-options="x for x in dataInfo14"></select>
           </div>
         </div>
         <div class="row container-fluid">
@@ -1000,20 +1005,20 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Se sospecha el uso de sustancias controladas</label>
               <br />
             <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
-            <select ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
+            <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
           </div>
 
           <div class="col-md-4">
               <label>Estado de la prueba</label>
               <br />
               <input  class="form-group"value="{{testStatuses2}}"> </input><br />
-              <select ng-model="testStatuses2" ng-cloak ng-options="x for x in dataInfo12"></select>
+              <select class="form-control" ng-model="testStatuses2" ng-cloak ng-options="x for x in dataInfo12"></select>
           </div>
           <div class="col-md-4">
               <label>Tipo de la prueba</label>
               <br />
               <input  class="form-group"value="{{drugTestTypes2}}"> </input><br />
-                <select ng-model="drugTestTypes2" ng-cloak ng-options="x for x in dataInfo13"></select>
+                <select class="form-control" ng-model="drugTestTypes2" ng-cloak ng-options="x for x in dataInfo13"></select>
 
           </div>
         </div>
@@ -1022,21 +1027,21 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Resultado de la prueba</label>
               <br />
             <input  class="form-group"value="{{alcoholTestResults2}}"> </input><br />
-            <select ng-model="alcoholTestResults2" ng-cloak ng-options="x for x in dataInfo14"></select>
+            <select class="form-control" ng-model="alcoholTestResults2" ng-cloak ng-options="x for x in dataInfo14"></select>
           </div>
 
           <div class="col-md-4">
               <label>Accion antes del accidente</label>
               <br />
               <input  class="form-group"value="{{actionsPriorToCrash}}"> </input><br />
-              <select ng-model="actionsPriorToCrash" ng-cloak ng-options="x for x in dataInfo16"></select>
+              <select class="form-control" ng-model="actionsPriorToCrash" ng-cloak ng-options="x for x in dataInfo16"></select>
 
           </div>
           <div class="col-md-4">
               <label>En camino o regresando de la escuela (K-12)</label>
               <br />
               <input  class="form-group"value="{{toFromSchool}}"> </input><br />
-                <select ng-model="toFromSchool" ng-cloak ng-options="x for x in dataInfo17"></select>
+                <select class="form-control" ng-model="toFromSchool" ng-cloak ng-options="x for x in dataInfo17"></select>
 
           </div>
         </div>
@@ -1045,7 +1050,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Acciones al momento del accidente</label>
               <br />
             <input  class="form-group"value="{{actionsAtTimeOfCrash}}"> </input><br />
-            <select ng-model="actionsAtTimeOfCrash" ng-cloak ng-options="x for x in dataInfo18"></select>
+            <select class="form-control" ng-model="actionsAtTimeOfCrash" ng-cloak ng-options="x for x in dataInfo18"></select>
           </div>
 
           <div class="col-md-4">
@@ -1103,10 +1108,11 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
 
         <button class="btn-primary btn" ng-click="panel.SubmitPageSix()">Submit</button>
-
+      </div>
       </div><!--End of panel 5 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(6)" id="panel6">
+        <div class="card-form">
         <h1>Policía</h1>
 
         <div class="row container-fluid">
@@ -1146,7 +1152,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
 
         <button class="btn-primary btn" ng-click="panel.SubmitPageSeven()">Submit</button>
-
+      </div>
       </div><!--End of panel 6 row/col grid system-->
 
 <div class="text-center">
@@ -1156,7 +1162,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       <button class="btn-primary btn " ng-click="panel.getCaseInfo()">Submit</button>
 </div>
     </section>
-
+  </div>
     <!-- <div ng-controller="PanelController" class="md-padding" id="popupContainer" ng-cloak> -->
 
 
