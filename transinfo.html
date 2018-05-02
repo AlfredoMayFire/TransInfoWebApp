@@ -350,11 +350,11 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
       <div class="panel" ng-show="panel.isSelected(3)" id="panel3" >
         <div ng-repeat="person in persons.ReportList" class = "card-form">
-        <h1 >Persona</h1>
+        <h1 >Persona {{$index + 1}} </h1>
         <div class="row container-fluid" >
           <div  class="col-md-4" >
               <label>Nombre y Apellido</label>
-              <br />
+              <br/>
             <input class="form-group"value="{{person.name}}" > </input>
           </div>
 
@@ -437,7 +437,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
       </div>
       <div  class = "card-form">
-        <h1>Vehiculo</h1>
+        <h1>Vehiculo {{$index + 1}}</h1>
 
         <div class="row container-fluid">
           <div class="col-md-4">

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="casesListView">
+  <head>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/transit_styles.css">
+  </head>
+  <body ng-controller="listViewController as list">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="casesListView.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-dropdown-multiselect/1.11.8/angularjs-dropdown-multiselect.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <div class="form-menu">
+    <ul layout-align="center" class="nav nav-pills text-center" >
+      <li ng-class="">
+         <a href ng-click="">Dashboard of Cases</a>
+      </li>
+      <li ng-class="">
+         <a href="transinfo.html" ng-click="">By Case Number</a>
+      </li>
+
+    </ul>
+  </div>
+
+    <div class="list-group">
+      <a href="#" ng-repeat="case in caseList.ReportList" class="list-group-item ">
+         <h4 class="list-group-item-heading">Case Number</h4>
+         <p class="list-group-item-text">{{case.CaseNumber}}</p>
+         <h4 class="list-group-item-heading">Crash Date </h4>
+         <p class="list-group-item-text">{{case.crashDate}}</p>
+       </a>
+    </div>
+
+  </body>
+</html>
