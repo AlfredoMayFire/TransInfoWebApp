@@ -24,6 +24,7 @@
   app.controller('PanelController', function($scope,$http,$mdDialog){
 
     $scope.reportSearched = true;
+    $scope.viewReportSearchBar = false;
 
     $scope.settings = { selectionLimit: 1 };
     //pagina 2
@@ -319,6 +320,20 @@
         alert("Successfully updated!");
       });
     };
+
+
+    window.onload = function(){
+      console.log("Enters func");
+      var casenumberItem = sessionStorage.caseNum;
+      if(casenumberItem != null)
+      {
+        $scope.caseNumber = casenumberItem;
+        document.getElementById("caseNumSubmitBtn").click();
+        console.log("Case number pressed is " + $scope.caseNumber);
+      }
+
+    };
+
 //this.Stuff is the key for the json data, it may or may not match its ng-model counterpart which is $scope._
 
     this.getCaseInfo = function(){
@@ -326,6 +341,7 @@
       .then(function(response){
         //console.log(response.data["success"]);
         $scope.reportSearched = false;
+        $scope.viewReportSearchBar = true;
 
         this.Stuff = response.data["success"].ReportList[0];
         page1 = response.data["success"].ReportList[0];

@@ -51,6 +51,11 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </li>
       </ul>
     </div>
+    <div id="success-alert" class="alert alert-success " ng-hide="reportSearched">
+      <!--<button  class="close" type="button" data-dismiss="alert" >&times;</button> -->
+      <strong>Caso Encontrado!</strong> Haz click en una pestaña para mas información sobre el caso.
+    </div>
+
   <div class="form-container">
       <div class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
         <div  class = "card-form">
@@ -1155,11 +1160,11 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       </div>
       </div><!--End of panel 6 row/col grid system-->
 
-<div class="text-center">
+<div class="text-center" ng-hide="viewReportSearchBar">
   <h4>Case Number</h4>
       <input type="text" ng-model="caseNumber" >
       </input>
-      <button class="btn-primary btn " ng-click="panel.getCaseInfo()">Submit</button>
+      <button id= "caseNumSubmitBtn" class="btn-primary btn " ng-click="panel.getCaseInfo()">Submit</button>
 </div>
     </section>
   </div>

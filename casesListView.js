@@ -4,11 +4,9 @@
   //var url = "http://localhost:9000/";
 
 
-
   var app = angular.module('casesListView', ["ui.bootstrap.modal","angularjs-dropdown-multiselect","ngMaterial"]);
 
   app.controller('listViewController', function($scope,$http){
-console.log("some func");
 
     window.onload = function(){
       console.log("Enters func")
@@ -19,9 +17,23 @@ console.log("some func");
         $scope.caseList = response.data["success"];
 
       });
-        console.log("leaves func");
+
     };
-  console.log("leaves controller");
+
+    this.onListItemClick = function(Case){
+      console.log("Item Clicked", Case)
+
+      if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+      sessionStorage.caseNum = Case.CaseNumber;
+      } else {
+    // Sorry! No Web Storage support..
+      console.log("No web Storage support")
+    }
+
+      var caseViewUrl = "transinfo.html";
+     window.location = caseViewUrl;
+    };
 
   });
 })();

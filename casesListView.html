@@ -31,14 +31,30 @@
     </ul>
   </div>
 
-    <div class="list-group">
+    <!-- <div class="list-group">
       <a href="#" ng-repeat="case in caseList.ReportList" class="list-group-item ">
          <h4 class="list-group-item-heading">Case Number</h4>
          <p class="list-group-item-text">{{case.CaseNumber}}</p>
          <h4 class="list-group-item-heading">Crash Date </h4>
          <p class="list-group-item-text">{{case.crashDate}}</p>
        </a>
-    </div>
+    </div> -->
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Case Number</th>
+        <th>Crash Date</th>
+        <th>Other info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="case in caseList.ReportList" ng-click="list.onListItemClick(case)">
+        <td>{{case.CaseNumber}}</td>
+        <td>{{case.crashDate}}</td>
+        <td>Stuff</td>
+      </tr>
+    </tbody>
+  </table>
 
   </body>
 </html>
