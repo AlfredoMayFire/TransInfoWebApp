@@ -20,6 +20,21 @@
 
     };
 
+    this.onCaseNumberDashboardClick = function(){
+      console.log("dashboard option clicked")
+
+      if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+      sessionStorage.clear();
+      } else {
+    // Sorry! No Web Storage support..
+      console.log("No web Storage support")
+    }
+
+      var caseViewUrl = "transinfo.html";
+     window.location = caseViewUrl;
+    }
+
     this.onListItemClick = function(Case){
       console.log("Item Clicked", Case)
 

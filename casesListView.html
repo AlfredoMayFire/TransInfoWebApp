@@ -25,7 +25,7 @@
          <a href ng-click="">Dashboard of Cases</a>
       </li>
       <li ng-class="">
-         <a href="transinfo.html" ng-click="">By Case Number</a>
+         <a href="" ng-click="list.onCaseNumberDashboardClick()">By Case Number</a>
       </li>
 
     </ul>
@@ -51,7 +51,7 @@
       <tr ng-repeat="case in caseList.ReportList" ng-click="list.onListItemClick(case)">
         <td>{{case.CaseNumber}}</td>
         <td>{{case.crashDate}}</td>
-  
+
       </tr>
     </tbody>
   </table>
