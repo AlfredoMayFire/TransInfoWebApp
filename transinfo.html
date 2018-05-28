@@ -62,7 +62,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         <h1>Información Básica del Accidente</h1>
 
 
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info" >
           <div class="col-lg-4">
               <label>Tipo de Accidente</label>
               <br />
@@ -76,23 +76,18 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <label>Número del Caso</label>
               <br />
               <input ng-model="caseNumber"  class="form-group"value="{{caseNumber}}"> </input>
-
           </div>
+
+
+
+        </div>
+        <div class="row container-fluid acc-info">
+
           <div class="col-md-4">
               <label>Dirección</label>
               <br />
               <input ng-model="address"  class="form-group"value="{{address}}"> </input>
 
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-lg-4">
-              <label>Estado</label>
-              <br />
-
-            <input  class="form-group"value="{{selectedState}}"></input><br />
-            <select class="form-control" class="form-control" ng-model="selectedState" ng-cloak ng-options="x for x in example1data"></select>
-            <!-- <div class="ng-cloak" ng-cloak ng-dropdown-multiselect="" settings="settings" options="example1data" selected-model="model2"></div> -->
           </div>
 
           <div class="col-md-4">
@@ -102,6 +97,18 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedCounty" ng-cloak ng-options="x for x in data3"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data3" selected-model="model3"></div> -->
           </div>
+
+          <div class="col-lg-4">
+              <label>Estado</label>
+              <br />
+
+            <input  class="form-group"value="{{selectedState}}"></input><br />
+            <select class="form-control" class="form-control" ng-model="selectedState" ng-cloak ng-options="x for x in example1data"></select>
+            <!-- <div class="ng-cloak" ng-cloak ng-dropdown-multiselect="" settings="settings" options="example1data" selected-model="model2"></div> -->
+          </div>
+
+        </div>
+        <div class="row container-fluid acc-info" >
           <div class="col-md-4">
               <label>Cerca de...</label>
               <br />
@@ -109,14 +116,16 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedNear" ng-cloak ng-options="x for x in data4"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data4" selected-model="model4"></div> -->
           </div>
-        </div>
-        <div class="row container-fluid">
+
           <div class="col-lg-4">
               <label>Nombre</label>
               <br />
             <input ng-model="nearToName" class="form-group"value="{{nearToName}}"> </input>
           </div>
 
+
+        </div>
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Distancia</label>
               <br />
@@ -130,8 +139,6 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedMeasure" ng-cloak ng-options="x for x in data5"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data5" selected-model="model5"></div> -->
           </div>
-        </div>
-        <div class="row container-fluid">
           <div class="col-lg-4">
               <label>Punto Cardinal</label>
               <br />
@@ -140,6 +147,16 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
             <!-- <div ng-dropdown-multiselect="" settings="settings" options="data8" selected-model="model8"></div> -->
           </div>
 
+
+        </div>
+        <div class="row container-fluid acc-info" >
+          <div class="col-md-4">
+              <label>Ubicación</label>
+              <br />
+            <input  class="form-group"value="{{selectedLocation}}"> </input><br />
+            <select class="form-control" ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
+            <!-- <div ng-dropdown-multiselect="" settings="settings" options="data9" selected-model="model9"></div> -->
+          </div>
           <div class="col-md-4">
               <label>Tipo de Propiedad</label>
               <br />
@@ -155,15 +172,6 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedZoneType" ng-cloak ng-options="x for x in data7"></select>
               <!-- <div ng-dropdown-multiselect="" settings="settings" options="data7" selected-model="model7"></div> -->
           </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Ubicación</label>
-              <br />
-            <input  class="form-group"value="{{selectedLocation}}"> </input><br />
-            <select class="form-control" ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
-            <!-- <div ng-dropdown-multiselect="" settings="settings" options="data9" selected-model="model9"></div> -->
-          </div>
 
           <!-- <div class="col-md-4">
               <label>Field Title</label>
@@ -178,7 +186,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div> -->
 
-        <div class="btn-cntr">  <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button> </div>
+        <div class="btn-cntr acc-info"  >  <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button> </div>
 
         </div>
       </div>
@@ -210,14 +218,15 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedLocationE" ng-cloak ng-options="x for x in model3"></select>
 
           </div>
-        </div>
-        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Forma de Colisión</label>
               <br />
             <input  class="form-group"value="{{selectedCollisionForm}}"> </input><br />
             <select class="form-control" ng-model="selectedCollisionForm" ng-cloak ng-options="x for x in model4"></select>
           </div>
+        </div>
+        <div class="row container-fluid  acc-info">
+
 
           <div class="col-md-4">
               <label>Clima #1</label>
@@ -233,8 +242,6 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedWeather2" ng-cloak ng-options="x for x in model6"></select>
 
           </div>
-        </div>
-        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Visibilidad</label>
               <br />
@@ -248,6 +255,9 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <input  class="form-group"value="{{selectedPavimento}}"> </input><br />
 
           </div>
+        </div>
+        <div class="row container-fluid  acc-info">
+
           <div class="col-md-4">
               <label>Ambiental</label>
               <br />
@@ -255,14 +265,16 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedAmbiente" ng-cloak ng-options="x for x in model9"></select>
 
           </div>
-        </div>
-        <div class="row container-fluid  acc-info">
           <div class="col-md-4">
               <label>Carretera</label>
               <br />
             <input  class="form-group"value="{{selectedRoadCircum}}"> </input><br />
             <select class="form-control" ng-model="selectedRoadCircum" ng-cloak ng-options="x for x in model10"></select>
           </div>
+
+        </div>
+        <div class="row container-fluid  acc-info">
+
 
           <div class="col-md-4">
               <label>Intersección a Desnivel</label>
@@ -278,6 +290,12 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedSpecificPlace" ng-cloak ng-options="x for x in model12"></select>
 
           </div>
+          <div class="col-md-4">
+                  <label>Tipo de Intersección</label>
+                      <br />
+                    <input  class="form-group"value="{{selectedIntersectionType}}"> </input><br />
+                    <select class="form-control" ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
+          </div>
         </div>
         <div class="row container-fluid  acc-info">
           <div class="col-md-4">
@@ -287,13 +305,6 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
             <select class="form-control" ng-model="selectedBusField" ng-cloak ng-options="x for x in model13"></select>
           </div>
 
-          <div class="col-md-4">
-              <label>Tipo de Intersección</label>
-              <br />
-              <input  class="form-group"value="{{selectedIntersectionType}}"> </input><br />
-              <select class="form-control" ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
-
-          </div>
           <div class="col-md-4">
               <label>¿En o cerca de Csontrucción?</label>
               <br />
@@ -534,7 +545,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         <div class="card-form">
         <h1>Informacion del Vehículo</h1>
 
-        <div class="row container-fluid">
+        <div class="row container-fluid ">
           <div class="col-md-4">
               <label>Tipo de Vehiculo de Motor</label>
               <br />
@@ -578,7 +589,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Maniobra/accion del vehiculo de motor</label>
               <br />
@@ -592,6 +603,10 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <input ng-model="occupants" class="form-group"value="{{occupants}}"> </input>
 
           </div>
+
+        </div>
+        <div class="row container-fluid">
+
           <div class="col-md-4">
               <label>Descripcion de la carretera</label>
               <br />
@@ -599,8 +614,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedRoadDescription" ng-cloak ng-options="x for x in information6"></select>
 
           </div>
-        </div>
-        <div class="row container-fluid">
+
           <div class="col-md-4">
               <label>Alineamiento</label>
               <br />
@@ -615,14 +629,15 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="selectedInclination" ng-cloak ng-options="x for x in information8"></select>
 
           </div>
+
+        </div>
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Cantidad de carriles en la carretera</label>
               <br />
               <input ng-model="laneCantidad" class="form-group"value="{{laneCantidad}}"> </input>
 
           </div>
-        </div>
-        <div class="row container-fluid">
           <div class="col-md-4">
               <label>Categoria de Carril</label>
               <br />
@@ -692,7 +707,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Cadena de Eventos 6</label>
               <br />
@@ -738,7 +753,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Defectos mecánicos del vehiculo 1</label>
               <br />
@@ -784,7 +799,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Vehiculo en movimiento</label>
               <br />
@@ -963,7 +978,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="conditions" ng-cloak ng-options="x for x in dataInfo10"></select>
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Equipo de seguridad utilizada(motociclista)</label>
               <br />
@@ -972,12 +987,6 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
 
           <div class="col-md-4">
-              <label>Se sospecha el uso de alcohol</label>
-              <br />
-              <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
-              <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
-          </div>
-          <div class="col-md-4">
               <label>Tipo de Vehiculo de Motor</label>
               <br />
               <input  class="form-group"value="{{panel.Info}}"> </input>
@@ -985,6 +994,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
         </div>
         <div class="row container-fluid">
+
+          <div class="col-md-4">
+                <label>Se sospecha el uso de alcohol</label>
+                  <br />
+                  <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
+                  <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
+          </div>
+
           <div class="col-md-4">
               <label>Estado de la prueba</label>
               <br />
@@ -1005,7 +1022,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <select class="form-control" ng-model="alcoholTestResults" ng-cloak ng-options="x for x in dataInfo14"></select>
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Se sospecha el uso de sustancias controladas</label>
               <br />
@@ -1024,16 +1041,16 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
               <br />
               <input  class="form-group"value="{{drugTestTypes2}}"> </input><br />
                 <select class="form-control" ng-model="drugTestTypes2" ng-cloak ng-options="x for x in dataInfo13"></select>
-
+                <div class="col-md-4">
+                    <label>Resultado de la prueba</label>
+                    <br />
+                  <input  class="form-group"value="{{alcoholTestResults2}}"> </input><br />
+                  <select class="form-control" ng-model="alcoholTestResults2" ng-cloak ng-options="x for x in dataInfo14"></select>
+                </div>
           </div>
         </div>
         <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Resultado de la prueba</label>
-              <br />
-            <input  class="form-group"value="{{alcoholTestResults2}}"> </input><br />
-            <select class="form-control" ng-model="alcoholTestResults2" ng-cloak ng-options="x for x in dataInfo14"></select>
-          </div>
+
 
           <div class="col-md-4">
               <label>Accion antes del accidente</label>
@@ -1050,7 +1067,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
         </div>
-        <div class="row container-fluid">
+        <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Acciones al momento del accidente</label>
               <br />
