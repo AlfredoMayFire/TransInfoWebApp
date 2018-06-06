@@ -40,3 +40,29 @@ input{
 .row{
 
 }
+
+
+@media print {
+     .ng-hide:not(.ng-hide-animate)
+{
+    display: block !important;
+}
+  header, nav, footer, button, select {
+    display: none !important;
+  }
+  .form-menu, .form-control, .alert, .btn-cntr{
+    display:none;
+  }
+  .card-form{
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+      display: block !important;
+  }
+  .form-container{
+
+    padding: 30px;
+
+  }
+
+}
