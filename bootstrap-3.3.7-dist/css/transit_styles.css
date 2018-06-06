@@ -41,6 +41,9 @@ input{
 .row{
 
 }
+#printTitle {
+  display: none ;
+}
 
 /*Here we format the print page to better fit and display everything at once. Works Separate from above styles*/
 @media print {
@@ -53,6 +56,9 @@ input{
 }
   header, nav, footer, button, select {
     display: none !important;
+  }
+  #printTitle{
+    display: block ;
   }
   .form-menu, .form-control, .alert, .btn-cntr{
     display:none;

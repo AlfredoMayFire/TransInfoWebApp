@@ -20,6 +20,17 @@
 
     };
 
+/*
+    $("#table-cases").tablesorter(); 
+    $('#table-cases').pbTable({
+      selectable:true,
+      sortable:true,
+      toolbar:{
+        enabled:false,
+        filterBox:false
+      }
+    });
+*/
     this.onCaseNumberDashboardClick = function(){
       console.log("dashboard option clicked")
 

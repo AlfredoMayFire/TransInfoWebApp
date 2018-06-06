@@ -32,7 +32,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       <div class="form-menu">
       <ul layout-align="center" class="nav nav-pills text-center" ng-hide="reportSearched">
         <li ng-class="{active: panel.isSelected(1)}">
-           <a href ng-click="panel.selectTab(1)">Accident</a>
+           <a href id="myselector"  ng-click="panel.selectTab(1)">Accident</a>
         </li>
         <li ng-class="{active: panel.isSelected(2)}">
            <a href ng-click="panel.selectTab(2)">Condiciones del Accidente</a>
@@ -56,6 +56,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       <strong>Caso Encontrado!</strong> Haz click en una pestaña para mas información sobre el caso.
     </div>
 
+    <div class="text-center" id="printTitle"><h4> Estado Libre Asociado de Puerto rico </h4> <h5> Informe de Choque de Tránsito </h5> </div>
   <div class="form-container">
       <div class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
         <div  class = "card-form">
