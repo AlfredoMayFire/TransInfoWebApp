@@ -13,6 +13,7 @@ ul a{
   color: #fff;
 }
 
+/* simple material design form card */
 .card-form{
   padding: 20px;
   margin: 0.5rem 0 1rem 0;
@@ -41,8 +42,11 @@ input{
 
 }
 
-
+/*Here we format the print page to better fit and display everything at once. Works Separate from above styles*/
 @media print {
+
+  /*magic attribute to display everything in ng-hide */
+
      .ng-hide:not(.ng-hide-animate)
 {
     display: block !important;
@@ -57,7 +61,6 @@ input{
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-      display: block !important;
   }
   .form-container{
 
