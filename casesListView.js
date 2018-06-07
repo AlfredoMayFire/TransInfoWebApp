@@ -20,8 +20,9 @@
 
     };
 
-/*
-    $("#table-cases").tablesorter();
+
+setTimeout(function() {$('table').tablesorter();}, 1000);
+    /*
     $('#table-cases').pbTable({
       selectable:true,
       sortable:true,

@@ -9,6 +9,8 @@
   <body ng-controller="listViewController as list">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="jquery.tablesorter.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -44,7 +46,7 @@
          <p class="list-group-item-text">{{case.crashDate}}</p>
        </a>
     </div> -->
-    <table  class="table table-hover">
+    <table  class="table table-hover tablesorter">
     <thead>
       <tr>
         <th>Case Number</th>
