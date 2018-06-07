@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/transit_styles.css">
   </head>
   <body ng-cloak>
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
@@ -58,11 +59,10 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
     <div class="text-center" id="printTitle"><h4> Estado Libre Asociado de Puerto rico </h4> <h5> Informe de Choque de Tránsito </h5> </div>
   <div class="form-container">
-      <div class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
+      <div id="landing-tab" class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
         <div  class = "card-form">
         <h1>Información Básica del Accidente</h1>
-
-
+        <div class="print-col2">
         <div class="row container-fluid acc-info" >
           <div class="col-lg-4">
               <label>Tipo de Accidente</label>
@@ -188,7 +188,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div> -->
 
         <div class="btn-cntr acc-info"  >  <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button> </div>
-
+      </div>
         </div>
       </div>
       </div> <!--End of panel 1 row/col grid system-->
@@ -196,7 +196,9 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       <div class="panel" ng-show="panel.isSelected(2)" id="panel2">
         <div  class = "card-form">
         <h1>Condiciones Básicas del Accidente</h1>
-        <div class="row container-fluid acc-info">
+
+        <div class="print-col2">
+          <div class="row container-fluid acc-info">
           <div class="col-md-4">
               <label>Evento Relacionado al Mayor daño:Tipo de colisión</label>
               <br />
@@ -361,13 +363,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div> -->
             <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageTwo()">Submit</button>
         </div>
-
+      </div>
       </div>
       </div>  <!--End of panel 2 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(3)" id="panel3" >
-        <div ng-repeat="person in persons.ReportList" class = "card-form">
+        <div ng-repeat="person in persons.ReportList" class = "card-form print-col3">
         <h1 >Persona {{$index + 1}} </h1>
+
         <div class="row container-fluid" >
           <div  class="col-md-4" >
               <label>Nombre y Apellido</label>
@@ -453,7 +456,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           <button class="btn-primary btn" ng-click="panel.SubmitPageThree()">Submit</button>
         </div>
       </div>
-      <div  class = "card-form">
+      <div  class = "card-form print-col3">
         <h1>Vehiculo {{$index + 1}}</h1>
 
         <div class="row container-fluid">
@@ -546,6 +549,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         <div class="card-form printvehicle-class">
         <h1>Informacion del Vehículo</h1>
 
+          <div class="print-col3">
         <div class="row container-fluid ">
           <div class="col-md-4">
               <label>Tipo de Vehiculo de Motor</label>
@@ -888,11 +892,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
         <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageFive()">Submit</button>
       </div>
+    </div>
       </div><!--End of panel 4 row/col grid system-->
 
       <div class="panel" ng-show="panel.isSelected(5)" id="panel5">
         <div class="card-form">
         <h1>Informacion solo para ocupantes del vehiculo</h1>
+
+          <div class="print-col3">
         <div class="row container-fluid">
           <div class="col-md-4">
               <label>Fila</label>
@@ -1119,11 +1126,12 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
         <button class="btn-primary btn" ng-click="panel.SubmitPageSix()">Submit</button>
       </div>
+    </div>
       </div><!--End of panel 5 row/col grid system-->
       <div class="panel" ng-show="panel.isSelected(6)" id="panel6">
         <div class="card-form">
         <h1>Policía</h1>
-
+          <div class="print-col2">
         <div class="row container-fluid">
           <div class="col-md-4">
               <label>Hora Notificada</label>
@@ -1162,6 +1170,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
         <button class="btn-primary btn" ng-click="panel.SubmitPageSeven()">Submit</button>
       </div>
+    </div>
       </div><!--End of panel 6 row/col grid system-->
 
 <div class="text-center" ng-hide="viewReportSearchBar">

@@ -64,14 +64,26 @@ input{
     display:none;
   }
   .card-form{
+
+  }
+  .print-col3{
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
+  }
+  .print-col2{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
   }
   .form-container{
 
     padding: 30px;
 
   }
+  .panel {
+  page-break-after:always;
+  page-break-inside:avoid
+}
 
 }

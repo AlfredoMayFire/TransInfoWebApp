@@ -21,7 +21,7 @@
     };
 
 /*
-    $("#table-cases").tablesorter(); 
+    $("#table-cases").tablesorter();
     $('#table-cases').pbTable({
       selectable:true,
       sortable:true,
