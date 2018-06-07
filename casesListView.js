@@ -20,8 +20,8 @@
 
     };
 
-
-setTimeout(function() {$('table').tablesorter();}, 1000);
+    //Sorting plugin plus a timer so table is not registered as empty by plugin
+    setTimeout(function() {$('table').tablesorter();}, 500);
     /*
     $('#table-cases').pbTable({
       selectable:true,
