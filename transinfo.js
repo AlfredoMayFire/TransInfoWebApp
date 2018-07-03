@@ -245,8 +245,8 @@
       page5.busUse = $scope.selectedBusUse;
       page5.lefthPlace = $scope.selectedHitAndRun;
       page5.towedDamage = $scope.selectedTowedBy;
-      page5.primerDefectoMecánico = $scope.selectedDefects1;
-      page5.segundoDefectoMecánico = $scope.selectedDefects2;
+      page5.primerDefectoMecanico = $scope.selectedDefects1;
+      page5.segundoDefectoMecanico = $scope.selectedDefects2;
       page5.initialContactPoint = $scope.selectedContactPoints;
       page5.affectedArea = $scope.selectedAffectedAreas;
       page5.extendDamage = $scope.selectedDamageExtent;
@@ -465,8 +465,8 @@
             $scope.selectedBusUse = this.Stuff.busUse;
             $scope.selectedHitAndRun = this.Stuff.lefthPlace;
             $scope.selectedTowedBy = this.Stuff.towedDamage;
-            $scope.selectedDefects1 = this.Stuff.primerDefectoMecánico;
-            $scope.selectedDefects2 = this.Stuff.segundoDefectoMecánico;
+            $scope.selectedDefects1 = this.Stuff.primerDefectoMecanico;
+            $scope.selectedDefects2 = this.Stuff.segundoDefectoMecanico;
             $scope.selectedContactPoints = this.Stuff.initialContactPoint;
             $scope.selectedAffectedAreas = this.Stuff.affectedArea;
             $scope.selectedDamageExtent = this.Stuff.extendDamage;

@@ -2,8 +2,8 @@
 <html ng-app="transinfo">
   <head>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/Users/jorge/Documents/Github/TransInfoWebApp/bootstrap-3.3.7-dist/css/transit_styles.css">
+    <link rel="stylesheet" type="text/css" href="/home/sites/2b/3/31b81a827d/bootstrap-3.3.7-dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/home/sites/2b/3/31b81a827d/bootstrap-3.3.7-dist/css/transit_styles.css">
   </head>
   <body ng-cloak>
 
@@ -54,14 +54,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
     </div>
     <div id="success-alert" class="alert alert-success " ng-hide="reportSearched">
       <!--<button  class="close" type="button" data-dismiss="alert" >&times;</button> -->
-      <strong>Caso Encontrado!</strong> Haz click en una pestaña para mas información sobre el caso.
+      <strong>Caso Encontrado!</strong> Haz click en una pestaña para mas informacion sobre el caso.
     </div>
 
-    <div class="text-center" id="printTitle"><h4> Estado Libre Asociado de Puerto rico </h4> <h5> Informe de Choque de Tránsito </h5> </div>
+    <div class="text-center" id="printTitle"><h4> Estado Libre Asociado de Puerto rico </h4> <h5> Informe de Choque de Transito </h5> </div>
   <div class="form-container">
       <div id="landing-tab" class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
         <div  class = "card-form">
-        <h1>Información Básica del Accidente</h1>
+        <h1>Informacion Basica del Accidente</h1>
         <div class="print-col2">
         <div class="row container-fluid acc-info" >
           <div class="col-lg-4">
@@ -74,7 +74,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
 
           <div class="col-md-4">
-              <label>Número del Caso</label>
+              <label>Numero del Caso</label>
               <br />
               <input ng-model="caseNumber"  class="form-group"value="{{caseNumber}}"> </input>
           </div>
@@ -85,7 +85,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         <div class="row container-fluid acc-info">
 
           <div class="col-md-4">
-              <label>Dirección</label>
+              <label>Direccion</label>
               <br />
               <input ng-model="address"  class="form-group"value="{{address}}"> </input>
 
@@ -152,7 +152,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
         <div class="row container-fluid acc-info" >
           <div class="col-md-4">
-              <label>Ubicación</label>
+              <label>Ubicacion</label>
               <br />
             <input  class="form-group"value="{{selectedLocation}}"> </input><br />
             <select class="form-control" ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
@@ -195,12 +195,12 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
       <div class="panel" ng-show="panel.isSelected(2)" id="panel2">
         <div  class = "card-form">
-        <h1>Condiciones Básicas del Accidente</h1>
+        <h1>Condiciones Basicas del Accidente</h1>
 
         <div class="print-col2">
           <div class="row container-fluid acc-info">
           <div class="col-md-4">
-              <label>Evento Relacionado al Mayor daño:Tipo de colisión</label>
+              <label>Evento Relacionado al Mayor daño:Tipo de colision</label>
               <br />
             <input  class="form-group"value="{{selectedCollision}}"> </input><br />
             <select class="form-control" ng-model="selectedCollision" ng-cloak ng-options="x for x in example1model"></select>
@@ -222,7 +222,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
           <div class="col-md-4">
-              <label>Forma de Colisión</label>
+              <label>Forma de Colision</label>
               <br />
             <input  class="form-group"value="{{selectedCollisionForm}}"> </input><br />
             <select class="form-control" ng-model="selectedCollisionForm" ng-cloak ng-options="x for x in model4"></select>
@@ -280,7 +280,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
 
           <div class="col-md-4">
-              <label>Intersección a Desnivel</label>
+              <label>Interseccion a Desnivel</label>
               <br />
               <input  class="form-group"value="{{selectedIntersection}}"> </input><br />
               <select class="form-control" ng-model="selectedIntersection" ng-cloak ng-options="x for x in model11"></select>
@@ -294,7 +294,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
           <div class="col-md-4">
-                  <label>Tipo de Intersección</label>
+                  <label>Tipo de Interseccion</label>
                       <br />
                     <input  class="form-group"value="{{selectedIntersectionType}}"> </input><br />
                     <select class="form-control" ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
@@ -309,7 +309,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
 
           <div class="col-md-4">
-              <label>¿En o cerca de Csontrucción?</label>
+              <label>¿En o cerca de Csontruccion?</label>
               <br />
               <input  class="form-group"value="{{selectedConstructionRelated}}"> </input><br />
               <select class="form-control" class="form-control" ng-model="selectedConstructionRelated" ng-cloak ng-options="x for x in model15"></select>
@@ -401,13 +401,13 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
 
           <div class="col-md-4">
-              <label>Fecha de Expiración</label>
+              <label>Fecha de Expiracion</label>
               <br />
               <input  class="form-group"value="{{person.expirationDate}}"> </input>
 
           </div>
           <div class="col-md-4">
-              <label>Urbanización/Barrío</label>
+              <label>Urbanizacion/Barrio</label>
               <br />
               <input   class="form-group"value="{{person.neighborhood}}"> </input>
 
@@ -447,7 +447,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
           </div>
           <div  class="col-md-4" >
-              <label >Donante de Órganos</label>
+              <label >Donante de organos</label>
               <br />
               <input  class="form-group"value="{{person.organDonor}}"> </input><br />
               <select class="form-control" ng-model="selectedOrgan" ng-cloak ng-options="x for x in info3"></select>
@@ -461,13 +461,13 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
         <div class="row container-fluid">
           <div class="col-md-4">
-              <label>Número de la Tablilla</label>
+              <label>Numero de la Tablilla</label>
               <br />
             <input ng-model="plateNumber" class="form-group"value="{{plateNumber}}"> </input>
           </div>
 
           <div class="col-md-4">
-              <label>Jurisdicción del Vehiculo</label>
+              <label>Jurisdiccion del Vehiculo</label>
               <br />
               <input  class="form-group"value="{{vehicleJurisdiction}}"> </input><br />
               <select class="form-control" ng-model="vehicleJurisdiction" ng-cloak ng-options="x for x in info4"></select>
@@ -482,7 +482,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
         <div class="row container-fluid">
           <div class="col-md-4">
-              <label>Numero de Identificación</label>
+              <label>Numero de Identificacion</label>
               <br />
             <input ng-model="vin" class="form-group"value="{{vin}}"> </input>
           </div>
@@ -508,7 +508,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
 
           <div class="col-md-4">
-              <label>Número de Marbete</label>
+              <label>Numero de Marbete</label>
               <br />
               <input ng-model="registrationNumber" class="form-group"value="{{registrationNumber}}"> </input>
 
@@ -528,7 +528,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
           </div>
 
           <div class="col-md-4">
-              <label>Fecha de Expiración</label>
+              <label>Fecha de Expiracion</label>
               <br />
               <input ng-model="expirationDate" class="form-group"value="{{expirationDate}}"> </input>
 
@@ -547,7 +547,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
 
       <div class="panel" ng-show="panel.isSelected(4)" id="panel4">
         <div class="card-form printvehicle-class">
-        <h1>Informacion del Vehículo</h1>
+        <h1>Informacion del Vehiculo</h1>
 
           <div class="print-col3">
         <div class="row container-fluid ">
@@ -760,14 +760,14 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
         </div>
         <div class="row container-fluid acc-info">
           <div class="col-md-4">
-              <label>Defectos mecánicos del vehiculo 1</label>
+              <label>Defectos mecanicos del vehiculo 1</label>
               <br />
             <input  class="form-group"value="{{selectedDefects1}}"> </input><br />
             <select class="form-control" ng-model="selectedDefects1" ng-cloak ng-options="x for x in information18"></select>
           </div>
 
           <div class="col-md-4">
-              <label>Defectos mecánicos del vehiculo 2</label>
+              <label>Defectos mecanicos del vehiculo 2</label>
               <br />
               <input  class="form-group"value="{{selectedDefects2}}"> </input><br />
               <select class="form-control" ng-model="selectedDefects2" ng-cloak ng-options="x for x in information18"></select>
@@ -1130,7 +1130,7 @@ c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button
       </div><!--End of panel 5 row/col grid system-->
       <div class="panel" ng-show="panel.isSelected(6)" id="panel6">
         <div class="card-form">
-        <h1>Policía</h1>
+        <h1>Policia</h1>
           <div class="print-col2">
         <div class="row container-fluid">
           <div class="col-md-4">
