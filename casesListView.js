@@ -43,7 +43,7 @@
       console.log("No web Storage support")
     }
 
-      var caseViewUrl = "transinfo.html";
+      var caseViewUrl = "report.html";
      window.location = caseViewUrl;
     }
 
@@ -58,7 +58,7 @@
       console.log("No web Storage support")
     }
 
-      var caseViewUrl = "transinfo.html";
+      var caseViewUrl = "report.html";
      window.location = caseViewUrl;
     };
 

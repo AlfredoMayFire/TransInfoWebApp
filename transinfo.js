@@ -339,6 +339,7 @@
 //this.Stuff is the key for the json data, it may or may not match its ng-model counterpart which is $scope._
 
     this.getCaseInfo = function(){
+      this.selectTab(1);
       $http.get(url + "ListAccidentByCaseNumber/" + $scope.caseNumber)
       .then(function(response){
         //console.log(response.data["success"]);
@@ -540,6 +541,7 @@
           $scope.timeOfArrivalEmergencie = this.Stuff.timeOfArrivalEmergencie;
           $scope.details = this.Stuff.details;
         });
+        this.selectTab(1);
 
       });
     };
@@ -1526,10 +1528,7 @@
 
 
     this.letsGet();
-
-    this.selectTab(1);
-
-
+    //this.selectTab(1);
 
   });
 
