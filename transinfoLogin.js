@@ -41,9 +41,10 @@ this.login = function(){
           message = data + status;
           console.log("Data: " + data + "\nStatus: " + status);
       }).then(function(response) {
-        if (response.data["payload"].UserID==1) {
+        // console.log(response.data["payload"])
+        if (response.data["payload"].AgencyID==1) {
 
-          window.location="transinfo.html"
+          window.location="casesListView.html"
         }
     //alert( response.data["payload"].UserID );
 });

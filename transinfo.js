@@ -23,6 +23,8 @@
 
   app.controller('PanelController', function($scope,$http,$mdDialog){
 
+
+
     $scope.reportSearched = true;
     $scope.viewReportSearchBar = false;
 
@@ -1524,6 +1526,9 @@
 
 
     this.letsGet();
+
+    this.selectTab(1);
+
 
 
   });

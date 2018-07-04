@@ -1,1194 +1,161 @@
 <!DOCTYPE html>
-<html ng-app="transinfo">
+<html ng-app="transinfoLogin">
   <head>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="/home/sites/2b/3/31b81a827d/bootstrap-3.3.7-dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/home/sites/2b/3/31b81a827d/bootstrap-3.3.7-dist/css/transit_styles.css">
-  </head>
-  <body ng-cloak>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <style>
+    body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
 
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+</style>
+</head>
+  <body ng-controller="LoginController as login">
+    <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="transinfoLogin.js"></script>
+          <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="/Users/user/Documents/Github/TransInfoWebApp/ico-152.png" />
+
+            <div class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="username" class="form-control" placeholder="Username" ng-model="username" ></input>
+
+                <input type="password" class="form-control" placeholder="Password" ng-model="password" ></input>
+                <div id="remember" class="checkbox">
 
-  <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <script type="text/javascript" src="angular.js"></script>
-    <script type="text/javascript" src="transinfo.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-dropdown-multiselect/1.11.8/angularjs-dropdown-multiselect.min.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-
-<!--
-              Esta parte es para codigo que no se utilizo, pero tal vez se use!
-a) <button type="submit" class="form-group pull-right btn btn-primary">Submit</button>
-b) <div class="panel" ng-show="panel.isSelected(2)" id="panel2">
-c) <button class="btn-primary btn" ng-click="panel.changeInfo()">Here's a button</button>
-
-  -->
-
-    <section  ng-cloak ng-controller="PanelController as panel">
-      <div class="form-menu">
-      <ul layout-align="center" class="nav nav-pills text-center" ng-hide="reportSearched">
-        <li ng-class="{active: panel.isSelected(1)}">
-           <a href id="myselector"  ng-click="panel.selectTab(1)">Accident</a>
-        </li>
-        <li ng-class="{active: panel.isSelected(2)}">
-           <a href ng-click="panel.selectTab(2)">Condiciones del Accidente</a>
-        </li>
-        <li ng-class="{active: panel.isSelected(3)}">
-          <a href ng-click="panel.selectTab(3)">Entrada de Datos</a>
-        </li>
-        <li ng-class="{active: panel.isSelected(4)}">
-          <a href ng-click="panel.selectTab(4)">Vehiculo Extendido</a>
-        </li>
-        <li ng-class="{active: panel.isSelected(5)}">
-          <a href ng-click="panel.selectTab(5)">Persona Extendida</a>
-        </li>
-        <li ng-class="{active: panel.isSelected(6)}">
-          <a href ng-click="panel.selectTab(6)">Narrativa</a>
-        </li>
-      </ul>
-    </div>
-    <div id="success-alert" class="alert alert-success " ng-hide="reportSearched">
-      <!--<button  class="close" type="button" data-dismiss="alert" >&times;</button> -->
-      <strong>Caso Encontrado!</strong> Haz click en una pestaña para mas informacion sobre el caso.
-    </div>
-
-    <div class="text-center" id="printTitle"><h4> Estado Libre Asociado de Puerto rico </h4> <h5> Informe de Choque de Transito </h5> </div>
-  <div class="form-container">
-      <div id="landing-tab" class="panel" ng-cloak ng-show="panel.isSelected(1)" id="panel1">
-        <div  class = "card-form">
-        <h1>Informacion Basica del Accidente</h1>
-        <div class="print-col2">
-        <div class="row container-fluid acc-info" >
-          <div class="col-lg-4">
-              <label>Tipo de Accidente</label>
-              <br />
-            <input  class="form-group"value="{{selectedReport}}"> </input><br />
-            <select class="form-control" ng-model="selectedReport" ng-cloak ng-options="x for x in data2"></select>
-            <!-- <div ng-dropdown-multiselect="" options="data2" selected-model="example1model" settings="settings" ></div> -->
-          </div>
-
-
-          <div class="col-md-4">
-              <label>Numero del Caso</label>
-              <br />
-              <input ng-model="caseNumber"  class="form-group"value="{{caseNumber}}"> </input>
-          </div>
-
-
-
-        </div>
-        <div class="row container-fluid acc-info">
-
-          <div class="col-md-4">
-              <label>Direccion</label>
-              <br />
-              <input ng-model="address"  class="form-group"value="{{address}}"> </input>
-
-          </div>
-
-          <div class="col-md-4">
-              <label>Municipio</label>
-              <br />
-              <input  class="form-group"value="{{selectedCounty}}"> </input><br />
-              <select class="form-control" ng-model="selectedCounty" ng-cloak ng-options="x for x in data3"></select>
-              <!-- <div ng-dropdown-multiselect="" settings="settings" options="data3" selected-model="model3"></div> -->
-          </div>
-
-          <div class="col-lg-4">
-              <label>Estado</label>
-              <br />
-
-            <input  class="form-group"value="{{selectedState}}"></input><br />
-            <select class="form-control" class="form-control" ng-model="selectedState" ng-cloak ng-options="x for x in example1data"></select>
-            <!-- <div class="ng-cloak" ng-cloak ng-dropdown-multiselect="" settings="settings" options="example1data" selected-model="model2"></div> -->
-          </div>
-
-        </div>
-        <div class="row container-fluid acc-info" >
-          <div class="col-md-4">
-              <label>Cerca de...</label>
-              <br />
-              <input  class="form-group"value="{{selectedNear}}"> </input><br />
-              <select class="form-control" ng-model="selectedNear" ng-cloak ng-options="x for x in data4"></select>
-              <!-- <div ng-dropdown-multiselect="" settings="settings" options="data4" selected-model="model4"></div> -->
-          </div>
-
-          <div class="col-lg-4">
-              <label>Nombre</label>
-              <br />
-            <input ng-model="nearToName" class="form-group"value="{{nearToName}}"> </input>
-          </div>
-
-
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Distancia</label>
-              <br />
-              <input ng-model="distance"  class="form-group"value="{{distance}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Medida</label>
-              <br />
-              <input  class="form-group"value="{{selectedMeasure}}"> </input><br />
-              <select class="form-control" ng-model="selectedMeasure" ng-cloak ng-options="x for x in data5"></select>
-              <!-- <div ng-dropdown-multiselect="" settings="settings" options="data5" selected-model="model5"></div> -->
-          </div>
-          <div class="col-lg-4">
-              <label>Punto Cardinal</label>
-              <br />
-            <input  class="form-group"value="{{selectedCardinal}}"> </input><br />
-            <select class="form-control" ng-model="selectedCardinal" ng-cloak ng-options="x for x in data8"></select>
-            <!-- <div ng-dropdown-multiselect="" settings="settings" options="data8" selected-model="model8"></div> -->
-          </div>
-
-
-        </div>
-        <div class="row container-fluid acc-info" >
-          <div class="col-md-4">
-              <label>Ubicacion</label>
-              <br />
-            <input  class="form-group"value="{{selectedLocation}}"> </input><br />
-            <select class="form-control" ng-model="selectedLocation" ng-cloak ng-options="x for x in data9"></select>
-            <!-- <div ng-dropdown-multiselect="" settings="settings" options="data9" selected-model="model9"></div> -->
-          </div>
-          <div class="col-md-4">
-              <label>Tipo de Propiedad</label>
-              <br />
-              <input  class="form-group"value="{{selectedProperty}}"> </input><br />
-              <select class="form-control" ng-model="selectedProperty" ng-cloak ng-options="x for x in data6"></select>
-
-              <!-- <div ng-dropdown-multiselect="" settings="settings" options="data6" selected-model="model6"></div> -->
-          </div>
-          <div class="col-md-4">
-              <label>Tipo de Zona</label>
-              <br />
-              <input  class="form-group"value="{{selectedZoneType}}"> </input><br />
-              <select class="form-control" ng-model="selectedZoneType" ng-cloak ng-options="x for x in data7"></select>
-              <!-- <div ng-dropdown-multiselect="" settings="settings" options="data7" selected-model="model7"></div> -->
-          </div>
-
-          <!-- <div class="col-md-4">
-              <label>Field Title</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Field Title</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input>
-
-          </div> -->
-
-        <div class="btn-cntr acc-info"  >  <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageOne()">Submit</button> </div>
-      </div>
-        </div>
-      </div>
-      </div> <!--End of panel 1 row/col grid system-->
-
-      <div class="panel" ng-show="panel.isSelected(2)" id="panel2">
-        <div  class = "card-form">
-        <h1>Condiciones Basicas del Accidente</h1>
-
-        <div class="print-col2">
-          <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Evento Relacionado al Mayor daño:Tipo de colision</label>
-              <br />
-            <input  class="form-group"value="{{selectedCollision}}"> </input><br />
-            <select class="form-control" ng-model="selectedCollision" ng-cloak ng-options="x for x in example1model"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Evento</label>
-              <br />
-              <input  class="form-group"value="{{selectedEvent}}"> </input><br />
-              <select class="form-control" ng-model="selectedEvent" ng-cloak ng-options="x for x in model2"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Localizacion del Evento</label>
-              <br />
-              <input  class="form-group"value="{{selectedLocationE}}"> </input>
-              <br />
-              <select class="form-control" ng-model="selectedLocationE" ng-cloak ng-options="x for x in model3"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Forma de Colision</label>
-              <br />
-            <input  class="form-group"value="{{selectedCollisionForm}}"> </input><br />
-            <select class="form-control" ng-model="selectedCollisionForm" ng-cloak ng-options="x for x in model4"></select>
-          </div>
-        </div>
-        <div class="row container-fluid  acc-info">
-
-
-          <div class="col-md-4">
-              <label>Clima #1</label>
-              <br />
-              <input  class="form-group"value="{{selectedWeather1}}"> </input><br />
-              <select class="form-control" ng-model="selectedWeather1" ng-cloak ng-options="x for x in model5"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Clima #2</label>
-              <br />
-              <input  class="form-group"value="{{selectedWeather2}}"> </input><br />
-              <select class="form-control" ng-model="selectedWeather2" ng-cloak ng-options="x for x in model6"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Visibilidad</label>
-              <br />
-            <input  class="form-group"value="{{selectedVisibility}}"> </input><br />
-            <select class="form-control" ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Pavimento</label>
-              <br />
-              <input  class="form-group"value="{{selectedPavimento}}"> </input><br />
-
-          </div>
-        </div>
-        <div class="row container-fluid  acc-info">
-
-          <div class="col-md-4">
-              <label>Ambiental</label>
-              <br />
-              <input  class="form-group"value="{{selectedAmbiente}}"> </input><br />
-              <select class="form-control" ng-model="selectedAmbiente" ng-cloak ng-options="x for x in model9"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Carretera</label>
-              <br />
-            <input  class="form-group"value="{{selectedRoadCircum}}"> </input><br />
-            <select class="form-control" ng-model="selectedRoadCircum" ng-cloak ng-options="x for x in model10"></select>
-          </div>
-
-        </div>
-        <div class="row container-fluid  acc-info">
-
-
-          <div class="col-md-4">
-              <label>Interseccion a Desnivel</label>
-              <br />
-              <input  class="form-group"value="{{selectedIntersection}}"> </input><br />
-              <select class="form-control" ng-model="selectedIntersection" ng-cloak ng-options="x for x in model11"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Lugar Especifico</label>
-              <br />
-              <input  class="form-group"value="{{selectedSpecificPlace}}"> </input><br />
-              <select class="form-control" ng-model="selectedSpecificPlace" ng-cloak ng-options="x for x in model12"></select>
-
-          </div>
-          <div class="col-md-4">
-                  <label>Tipo de Interseccion</label>
-                      <br />
-                    <input  class="form-group"value="{{selectedIntersectionType}}"> </input><br />
-                    <select class="form-control" ng-model="selectedIntersectionType" ng-cloak ng-options="x for x in model14"></select>
-          </div>
-        </div>
-        <div class="row container-fluid  acc-info">
-          <div class="col-md-4">
-              <label>Relacionado a Omnibus Escolar</label>
-              <br />
-            <input  class="form-group"value="{{selectedBusField}}"> </input><br />
-            <select class="form-control" ng-model="selectedBusField" ng-cloak ng-options="x for x in model13"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>¿En o cerca de Csontruccion?</label>
-              <br />
-              <input  class="form-group"value="{{selectedConstructionRelated}}"> </input><br />
-              <select class="form-control" class="form-control" ng-model="selectedConstructionRelated" ng-cloak ng-options="x for x in model15"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid  acc-info">
-          <div class="col-md-4">
-              <label>Tipo de Zona de Trabajo</label>
-              <br />
-            <input  class="form-group"value="{{selectedWorkTypeZone}}"> </input><br />
-            <select class="form-control" ng-model="selectedWorkTypeZone" ng-cloak ng-options="x for x in model17"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Localizacion del Accidente</label>
-              <br />
-              <input  class="form-group"value="{{selectedWorkLocation}}"> </input><br />
-              <select class="form-control" ng-model="selectedWorkLocation" ng-cloak ng-options="x for x in model16"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Policia Presente en el Area</label>
-              <br />
-              <input  class="form-group"value="{{selectedPolicePresence}}"> </input><br />
-              <select class="form-control" ng-model="selectedPolicePresence" ng-cloak ng-options="x for x in model18"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid  acc-info">
-          <div class="col-md-4">
-              <label>Trabajadores Presentes</label>
-              <br />
-            <input  class="form-group"value="{{selectedWorkersPresence}}"> </input><br />
-            <select class="form-control" ng-model="selectedWorkersPresence" ng-cloak ng-options="x for x in model19"></select>
-          </div>
-
-          <!-- <div class="col-md-4">
-              <label>Field Title</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input><br />
-              <select ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
-
-          </div> -->
-          <!-- <div class="col-md-4">
-              <label>Field Title</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input><br />
-              <select ng-model="selectedVisibility" ng-cloak ng-options="x for x in model7"></select>
-
-          </div> -->
-            <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageTwo()">Submit</button>
-        </div>
-      </div>
-      </div>
-      </div>  <!--End of panel 2 row/col grid system-->
-
-      <div class="panel" ng-show="panel.isSelected(3)" id="panel3" >
-        <div ng-repeat="person in persons.ReportList" class = "card-form print-col3">
-        <h1 >Persona {{$index + 1}} </h1>
-
-        <div class="row container-fluid" >
-          <div  class="col-md-4" >
-              <label>Nombre y Apellido</label>
-              <br/>
-            <input class="form-group"value="{{person.name}}" > </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Genero</label>
-              <br />
-              <input  class="form-group"value="{{person.gender}}"> </input> <br />
-              <select class="form-control" ng-model="selectedGender" ng-cloak ng-options="x for x in info1"></select>
-
-          </div>
-          <div  class="col-md-4">
-              <label>Tipo de Licencia</label>
-              <br />
-              <input  class="form-group"value="{{person.licenseType}}"> </input><br />
-              <select class="form-control" ng-model="selectedLicenseType" ng-cloak ng-options="x for x in info2"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Numero de Licencia</label>
-              <br />
-            <input  class="form-group"value="{{person.licenceNumber}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Fecha de Expiracion</label>
-              <br />
-              <input  class="form-group"value="{{person.expirationDate}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Urbanizacion/Barrio</label>
-              <br />
-              <input   class="form-group"value="{{person.neighborhood}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Calle</label>
-              <br />
-            <input class="form-group"value="{{person.streetName}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Ciudad</label>
-              <br />
-              <input  class="form-group"value="{{person.city}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Estado/Pais</label>
-              <br />
-              <input  class="form-group"value="{{person.stateCountry}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Zip Code</label>
-              <br />
-            <input class="form-group"value="{{person.zipCode}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Telefono</label>
-              <br />
-              <input  class="form-group"value="{{person.phoneNumber}}"> </input>
-
-          </div>
-          <div  class="col-md-4" >
-              <label >Donante de organos</label>
-              <br />
-              <input  class="form-group"value="{{person.organDonor}}"> </input><br />
-              <select class="form-control" ng-model="selectedOrgan" ng-cloak ng-options="x for x in info3"></select>
-
-          </div>
-          <button class="btn-primary btn" ng-click="panel.SubmitPageThree()">Submit</button>
-        </div>
-      </div>
-      <div  class = "card-form print-col3">
-        <h1>Vehiculo {{$index + 1}}</h1>
-
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Numero de la Tablilla</label>
-              <br />
-            <input ng-model="plateNumber" class="form-group"value="{{plateNumber}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Jurisdiccion del Vehiculo</label>
-              <br />
-              <input  class="form-group"value="{{vehicleJurisdiction}}"> </input><br />
-              <select class="form-control" ng-model="vehicleJurisdiction" ng-cloak ng-options="x for x in info4"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Estado</label>
-              <br />
-              <input ng-model="state" class="form-group"value="{{state}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Numero de Identificacion</label>
-              <br />
-            <input ng-model="vin" class="form-group"value="{{vin}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Año</label>
-              <br />
-              <input ng-model="year" class="form-group"value="{{year}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Marca</label>
-              <br />
-              <input ng-model="make" class="form-group"value="{{make}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Modelo</label>
-              <br />
-            <input ng-model="modelos" class="form-group"value="{{modelos}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Numero de Marbete</label>
-              <br />
-              <input ng-model="registrationNumber" class="form-group"value="{{registrationNumber}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Aseguradora</label>
-              <br />
-              <input ng-model="insuranceCompany" class="form-group"value="{{insuranceCompany}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Fecha de Compra</label>
-              <br />
-            <input ng-model="purchaseDate" class="form-group"value="{{purchaseDate}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Fecha de Expiracion</label>
-              <br />
-              <input ng-model="expirationDate" class="form-group"value="{{expirationDate}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Field Title</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input>
-
-          </div>
-        </div>
-
-        <button class="btn-primary btn" ng-click="panel.SubmitPageFour()">Submit</button>
-      </div>
-      </div><!--End of panel 3 row/col grid system-->
-
-      <div class="panel" ng-show="panel.isSelected(4)" id="panel4">
-        <div class="card-form printvehicle-class">
-        <h1>Informacion del Vehiculo</h1>
-
-          <div class="print-col3">
-        <div class="row container-fluid ">
-          <div class="col-md-4">
-              <label>Tipo de Vehiculo de Motor</label>
-              <br />
-            <input  class="form-group"value="{{selectedVehicleType}}"> </input><br />
-            <select class="form-control" ng-model="selectedVehicleType" ng-cloak ng-options="x for x in information1"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Direccion de Viaje antes del Choque</label>
-              <br />
-              <input  class="form-group"value="{{selectedTravelDirection}}"> </input><br />
-              <select class="form-control" ng-model="selectedTravelDirection" ng-cloak ng-options="x for x in information2"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Funcion especial del Vehiculo de motor en transporte</label>
-              <br />
-              <input  class="form-group"value="{{selectedSpecialFunction}}"> </input><br />
-              <select class="form-control" ng-model="selectedSpecialFunction" ng-cloak ng-options="x for x in information3"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Uso de Vehiculo de motor de emergencia</label>
-              <br />
-            <input  class="form-group"value="{{selectedEmergencyMotorVehicle}}"> </input><br />
-            <select class="form-control" ng-model="selectedEmergencyMotorVehicle" ng-cloak ng-options="x for x in information4"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Velocidad Maxima Rotulada</label>
-              <br />
-              <input ng-model="mPH" class="form-group"value="{{mPH}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Velocidad del Vehiculo</label>
-              <br />
-              <input ng-model="mPHDescription" class="form-group"value="{{mPHDescription}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Maniobra/accion del vehiculo de motor</label>
-              <br />
-            <input  class="form-group"value="{{selectedAction}}"> </input><br />
-            <select class="form-control" ng-model="selectedAction" ng-cloak ng-options="x for x in information5"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Ocupantes</label>
-              <br />
-              <input ng-model="occupants" class="form-group"value="{{occupants}}"> </input>
-
-          </div>
-
-        </div>
-        <div class="row container-fluid">
-
-          <div class="col-md-4">
-              <label>Descripcion de la carretera</label>
-              <br />
-              <input  class="form-group"value="{{selectedRoadDescription}}"> </input><br />
-              <select class="form-control" ng-model="selectedRoadDescription" ng-cloak ng-options="x for x in information6"></select>
-
-          </div>
-
-          <div class="col-md-4">
-              <label>Alineamiento</label>
-              <br />
-            <input  class="form-group"value="{{selectedAlignment}}"> </input><br />
-            <select class="form-control" ng-model="selectedAlignment" ng-cloak ng-options="x for x in information7"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Inclinacion</label>
-              <br />
-              <input  class="form-group"value="{{selectedInclination}}"> </input><br />
-              <select class="form-control" ng-model="selectedInclination" ng-cloak ng-options="x for x in information8"></select>
-
-          </div>
-
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Cantidad de carriles en la carretera</label>
-              <br />
-              <input ng-model="laneCantidad" class="form-group"value="{{laneCantidad}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Categoria de Carril</label>
-              <br />
-            <input  class="form-group"value="{{selectedTypeCategoryLane}}"> </input><br />
-            <select class="form-control" ng-model="selectedTypeCategoryLane" ng-cloak ng-options="x for x in information9"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Tipo de Carril</label>
-              <br />
-              <input  class="form-group"value="{{selectedLaneType}}"> </input><br />
-              <select class="form-control" ng-model="selectedLaneType" ng-cloak ng-options="x for x in information10"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Tipo de Controles de transito</label>
-              <br />
-              <input  class="form-group"value="{{selectedTCDT}}"> </input>
-              <br />
-              <select class="form-control" ng-model="selectedTCDT" ng-cloak ng-options="x for x in information11"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>¿En operacion o perdido?</label>
-              <br />
-            <input  class="form-group"value="{{selectedTCDW}}"> </input><br />
-            <select class="form-control" ng-model="selectedTCDW" ng-cloak ng-options="x for x in information12"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Cadena de Eventos 1</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEventCategories}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEventCategories" ng-cloak ng-options="x for x in information13"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Cadena de Eventos 2</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEventCategories1}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEventCategories1" ng-cloak ng-options="x for x in information13"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Cadena de Eventos 3</label>
-              <br />
-            <input  class="form-group"value="{{selectedHarmfulEventCategories2}}"> </input><br />
-            <select class="form-control" ng-model="selectedHarmfulEventCategories2" ng-cloak ng-options="x for x in information13"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Cadena de Eventos 4</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEventCategories3}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEventCategories3" ng-cloak ng-options="x for x in information13"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Cadena de Eventos 5</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEvent}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEvent" ng-cloak ng-options="x for x in information14"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Cadena de Eventos 6</label>
-              <br />
-            <input  class="form-group"value="{{selectedHarmfulEvent1}}"> </input><br />
-            <select class="form-control" ng-model="selectedHarmfulEvent1" ng-cloak ng-options="x for x in information14"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Cadena de Eventos 7</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEvent2}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEvent2" ng-cloak ng-options="x for x in information14"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Cadena de Eventos 8</label>
-              <br />
-              <input  class="form-group"value="{{selectedHarmfulEvent3}}"> </input><br />
-              <select class="form-control" ng-model="selectedHarmfulEvent3" ng-cloak ng-options="x for x in information14"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Uso del Bus</label>
-              <br />
-            <input  class="form-group"value="{{selectedBusUse}}"> </input><br />
-            <select class="form-control" ng-model="selectedBusUse" ng-cloak ng-options="x for x in information15"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Abandono el lugar?</label>
-              <br />
-              <input  class="form-group"value="{{selectedHitAndRun}}"> </input><br />
-              <select class="form-control" ng-model="selectedHitAndRun" ng-cloak ng-options="x for x in information16"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Remolcado por Daños</label>
-              <br />
-              <input  class="form-group"value="{{selectedTowedBy}}"> </input><br />
-              <select class="form-control" ng-model="selectedTowedBy" ng-cloak ng-options="x for x in information17"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Defectos mecanicos del vehiculo 1</label>
-              <br />
-            <input  class="form-group"value="{{selectedDefects1}}"> </input><br />
-            <select class="form-control" ng-model="selectedDefects1" ng-cloak ng-options="x for x in information18"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Defectos mecanicos del vehiculo 2</label>
-              <br />
-              <input  class="form-group"value="{{selectedDefects2}}"> </input><br />
-              <select class="form-control" ng-model="selectedDefects2" ng-cloak ng-options="x for x in information18"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Punto inicial de contacto</label>
-              <br />
-              <input  class="form-group"value="{{selectedContactPoints}}"> </input><br />
-              <select class="form-control" ng-model="selectedContactPoints" ng-cloak ng-options="x for x in information19"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Areas Afectadas</label>
-              <br />
-            <input  class="form-group"value="{{selectedAffectedAreas}}"> </input><br />
-            <select class="form-control" ng-model="selectedAffectedAreas" ng-cloak ng-options="x for x in information20"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Grados del daño</label>
-              <br />
-              <input  class="form-group"value="{{selectedDamageExtent}}"> </input><br />
-              <select class="form-control" ng-model="selectedDamageExtent" ng-cloak ng-options="x for x in information21"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Uso del vehiculo comercial</label>
-              <br />
-              <input  class="form-group"value="{{selectedOfficialVehicle}}"> </input><br />
-              <select class="form-control" ng-model="selectedOfficialVehicle" ng-cloak ng-options="x for x in information22"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Vehiculo en movimiento</label>
-              <br />
-            <input  class="form-group"value="{{selectedVehicleMovement}}"> </input><br />
-            <select class="form-control" ng-model="selectedVehicleMovement" ng-cloak ng-options="x for x in information23"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Conductor autorizado</label>
-              <br />
-              <input  class="form-group"value="{{selectedAuthorizedDriver}}"> </input><br />
-              <select class="form-control" ng-model="selectedAuthorizedDriver" ng-cloak ng-options="x for x in information24"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>La inspeccion esta al dia</label>
-              <br />
-              <input  class="form-group"value="{{selectedInspectionUpToDate}}"> </input><br />
-              <select class="form-control" ng-model="selectedInspectionUpToDate" ng-cloak ng-options="x for x in information24"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Permiso especial (Permiso de arrastre DTOP/DOT)</label>
-              <br />
-            <input  class="form-group"value="{{selectedSpecialPermission}}"> </input><br />
-            <select class="form-control" ng-model="selectedSpecialPermission" ng-cloak ng-options="x for x in information24"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Peso bruto(incluyendo remolques)</label>
-              <br />
-              <input  class="form-group"value="{{selectedPesoBruto}}"> </input><br />
-              <select class="form-control" ng-model="selectedPesoBruto" ng-cloak ng-options="x for x in information27"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Cantidad total de ejes</label>
-              <br />
-              <input ng-model="totalAxis" class="form-group"value="{{totalAxis}}"> </input><br />
-
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Configuracion del vehiculo</label>
-              <br />
-            <input  class="form-group"value="{{selectedConfiguration}}"> </input><br />
-            <select class="form-control" ng-model="selectedConfiguration" ng-cloak ng-options="x for x in information28"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Tipo vehiculo de carga</label>
-              <br />
-              <input  class="form-group"value="{{selectedCargoVehicleType}}"> </input><br />
-              <select class="form-control" ng-model="selectedCargoVehicleType" ng-cloak ng-options="x for x in information29"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>¿Vehiculo contiene material peligroso?</label>
-              <br />
-              <input  class="form-group"value="{{selectedHazardousInvolved}}"> </input><br />
-              <select class="form-control" ng-model="selectedHazardousInvolved" ng-cloak ng-options="x for x in information30"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Numero de identificacion en el diamante</label>
-              <br />
-            <input ng-model="diamondIdNumber" class="form-group"value="{{diamondIdNumber}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>¿Hubo derrame de material peligroso debido al choque?</label>
-              <br />
-              <input  class="form-group"value="{{selectedHazardousReleased}}"> </input><br />
-              <select class="form-control" ng-model="selectedHazardousReleased" ng-cloak ng-options="x for x in information31"></select>
-
-          </div>
-
-        </div>
-
-        <button class="btn-primary btn pull-right" ng-click="panel.SubmitPageFive()">Submit</button>
-      </div>
-    </div>
-      </div><!--End of panel 4 row/col grid system-->
-
-      <div class="panel" ng-show="panel.isSelected(5)" id="panel5">
-        <div class="card-form">
-        <h1>Informacion solo para ocupantes del vehiculo</h1>
-
-          <div class="print-col3">
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Fila</label>
-              <br />
-            <input  class="form-group"value="{{rows}}"> </input><br />
-            <select class="form-control" ng-model="rows" ng-cloak ng-options="x for x in dataInfo1"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Asiento</label>
-              <br />
-              <input  class="form-group"value="{{seats}}"> </input><br />
-              <select class="form-control" ng-model="seats" ng-cloak ng-options="x for x in dataInfo2"></select>
-          </div>
-          <div class="col-md-4">
-              <label>Otra Localizacion</label>
-              <br />
-              <input  class="form-group"value="{{seatingOthers}}"> </input><br />
-              <select class="form-control" ng-model="seatingOthers" ng-cloak ng-options="x for x in dataInfo3"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Tipo de Vehiculo de Motor</label>
-              <br />
-            <input  class="form-group"value="{{panel.Info}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Sistema de Retencion</label>
-              <br />
-              <input  class="form-group"value="{{restraintSystems}}"> </input><br />
-              <select class="form-control" ng-model="restraintSystems" ng-cloak ng-options="x for x in dataInfo4"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Activacion de bolsas de aire</label>
-              <br />
-              <input  class="form-group"value="{{airbagDeployed}}"> </input><br />
-              <select class="form-control" ng-model="airbagDeployed" ng-cloak ng-options="x for x in dataInfo5"></select>
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Expulsion</label>
-              <br />
-            <input  class="form-group"value="{{ejections}}"> </input><br />
-            <select class="form-control" ng-model="ejections" ng-cloak ng-options="x for x in dataInfo6"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Relacionado a velocidad</label>
-              <br />
-              <input  class="form-group"value="{{speedingSuspected}}"> </input><br />
-              <select class="form-control" ng-model="speedingSuspected" ng-cloak ng-options="x for x in dataInfo7"></select>
-          </div>
-          <div class="col-md-4">
-              <label>Extraccion</label>
-              <br />
-              <input  class="form-group"value="{{extrications}}"> </input><br />
-              <select class="form-control" ng-model="extrications" ng-cloak ng-options="x for x in dataInfo20"></select>
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Circunstancias del conductor antes del accidente</label>
-              <br />
-            <input  class="form-group"value="{{contribActionsCircumstances}}"> </input><br />
-            <select class="form-control" ng-model="contribActionsCircumstances" ng-cloak ng-options="x for x in dataInfo8"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Conducto distraido por</label>
-              <br />
-              <input  class="form-group"value="{{distractedBy}}"> </input><br />
-              <select class="form-control" ng-model="distractedBy" ng-cloak ng-options="x for x in dataInfo9"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>Condiciones al momento del accidente</label>
-              <br />
-              <input  class="form-group"value="{{conditions}}"> </input><br />
-              <select class="form-control" ng-model="conditions" ng-cloak ng-options="x for x in dataInfo10"></select>
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Equipo de seguridad utilizada(motociclista)</label>
-              <br />
-            <input  class="form-group"value="{{safetyEquipments}}"> </input><br />
-            <select class="form-control" ng-model="safetyEquipments" ng-cloak ng-options="x for x in dataInfo11"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Tipo de Vehiculo de Motor</label>
-              <br />
-              <input  class="form-group"value="{{panel.Info}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-
-          <div class="col-md-4">
-                <label>Se sospecha el uso de alcohol</label>
-                  <br />
-                  <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
-                  <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Estado de la prueba</label>
-              <br />
-            <input  class="form-group"value="{{testStatuses}}"> </input><br />
-            <select class="form-control" ng-model="testStatuses" ng-cloak ng-options="x for x in dataInfo12"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Tipo de la prueba</label>
-              <br />
-              <input  class="form-group"value="{{drugTestTypes}}"> </input><br />
-              <select class="form-control" ng-model="drugTestTypes" ng-cloak ng-options="x for x in dataInfo13"></select>
-          </div>
-          <div class="col-md-4">
-              <label>Resultado de la prueba</label>
-              <br />
-              <input  class="form-group"value="{{alcoholTestResults}}"> </input><br />
-              <select class="form-control" ng-model="alcoholTestResults" ng-cloak ng-options="x for x in dataInfo14"></select>
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Se sospecha el uso de sustancias controladas</label>
-              <br />
-            <input  class="form-group"value="{{substancesSuspected}}"> </input><br />
-            <select class="form-control" ng-model="substancesSuspected" ng-cloak ng-options="x for x in dataInfo15"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Estado de la prueba</label>
-              <br />
-              <input  class="form-group"value="{{testStatuses2}}"> </input><br />
-              <select class="form-control" ng-model="testStatuses2" ng-cloak ng-options="x for x in dataInfo12"></select>
-          </div>
-          <div class="col-md-4">
-              <label>Tipo de la prueba</label>
-              <br />
-              <input  class="form-group"value="{{drugTestTypes2}}"> </input><br />
-                <select class="form-control" ng-model="drugTestTypes2" ng-cloak ng-options="x for x in dataInfo13"></select>
-                <div class="col-md-4">
-                    <label>Resultado de la prueba</label>
-                    <br />
-                  <input  class="form-group"value="{{alcoholTestResults2}}"> </input><br />
-                  <select class="form-control" ng-model="alcoholTestResults2" ng-cloak ng-options="x for x in dataInfo14"></select>
                 </div>
-          </div>
-        </div>
-        <div class="row container-fluid">
+                <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="login.login()">Sign in</button>
+            </div><!-- /form -->
+            <!-- <a href="#" class="forgot-password">
+                Forgot the password?
+            </a> -->
+        </div><!-- /card-container -->
 
+    <!--<button class="btn-primary btn" ng-click="login.login()">Submit</button>-->
 
-          <div class="col-md-4">
-              <label>Accion antes del accidente</label>
-              <br />
-              <input  class="form-group"value="{{actionsPriorToCrash}}"> </input><br />
-              <select class="form-control" ng-model="actionsPriorToCrash" ng-cloak ng-options="x for x in dataInfo16"></select>
-
-          </div>
-          <div class="col-md-4">
-              <label>En camino o regresando de la escuela (K-12)</label>
-              <br />
-              <input  class="form-group"value="{{toFromSchool}}"> </input><br />
-                <select class="form-control" ng-model="toFromSchool" ng-cloak ng-options="x for x in dataInfo17"></select>
-
-          </div>
-        </div>
-        <div class="row container-fluid acc-info">
-          <div class="col-md-4">
-              <label>Acciones al momento del accidente</label>
-              <br />
-            <input  class="form-group"value="{{actionsAtTimeOfCrash}}"> </input><br />
-            <select class="form-control" ng-model="actionsAtTimeOfCrash" ng-cloak ng-options="x for x in dataInfo18"></select>
-          </div>
-
-          <div class="col-md-4">
-              <label>Localizacion al momento del accidente</label>
-              <br />
-              <input ng-model="locationWhenCollision" class="form-group"value="{{locationWhenCollision}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>La persona fue transportada a servicios medicos</label>
-              <br />
-              <input ng-model="transportedByME" class="form-group"value="{{transportedByME}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Transportado a</label>
-              <br />
-            <input ng-model="transportedTo" class="form-group"value="{{transportedTo}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Transportado por</label>
-              <br />
-              <input ng-model=transportedBy class="form-group"value="{{transportedBy}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Numero de incidentes de emergencias medicas</label>
-              <br />
-              <input ng-model="medicalEmergenciesNumber" class="form-group"value="{{medicalEmergenciesNumber}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Numero CSP de la ambulancia</label>
-              <br />
-            <input ng-model="ambulanceCSPNumber" class="form-group"value="{{ambulanceCSPNumber}}"> </input>
-          </div>
-        </div>
-
-        <button class="btn-primary btn" ng-click="panel.SubmitPageSix()">Submit</button>
-      </div>
-    </div>
-      </div><!--End of panel 5 row/col grid system-->
-      <div class="panel" ng-show="panel.isSelected(6)" id="panel6">
-        <div class="card-form">
-        <h1>Policia</h1>
-          <div class="print-col2">
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Hora Notificada</label>
-              <br />
-            <input ng-model="notifiedTimePolice" class="form-group"value="{{notifiedTimePolice}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Hora de Llegada</label>
-              <br />
-              <input ng-model="timeOfArrivalPolice" class="form-group"value="{{timeOfArrivalPolice}}"> </input>
-
-          </div>
-          <div class="col-md-4">
-              <label>Hora Notificada</label>
-              <br />
-              <input ng-model="notifiedTimeEmergencie" class="form-group"value="{{notifiedTimeEmergencie}}"> </input>
-
-          </div>
-        </div>
-        <div class="row container-fluid">
-          <div class="col-md-4">
-              <label>Hora de Llegada</label>
-              <br />
-            <input ng-model="timeOfArrivalEmergencie" class="form-group"value="{{timeOfArrivalEmergencie}}"> </input>
-          </div>
-
-          <div class="col-md-4">
-              <label>Detalles del Accidente</label>
-              <br />
-              <input ng-model="details" class="form-group"value="{{details}}"> </input>
-
-          </div>
-
-        </div>
-
-        <button class="btn-primary btn" ng-click="panel.SubmitPageSeven()">Submit</button>
-      </div>
-    </div>
-      </div><!--End of panel 6 row/col grid system-->
-
-<div class="text-center" ng-hide="viewReportSearchBar">
-  <h4>Case Number</h4>
-      <input type="text" ng-model="caseNumber" >
-      </input>
-      <button id= "caseNumSubmitBtn" class="btn-primary btn " ng-click="panel.getCaseInfo()">Submit</button>
-</div>
-    </section>
-  </div>
-    <!-- <div ng-controller="PanelController" class="md-padding" id="popupContainer" ng-cloak> -->
-
-
-  <!-- <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center"> -->
-
-    <!-- <md-button class="md-primary md-raised" ng-click="showPrompt($event)"  >
-      Prompt Dialog
-    </md-button> -->
-
-  </body>
-</html>
+    </body>
+    </html>
