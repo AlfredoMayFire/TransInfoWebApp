@@ -22,6 +22,12 @@ var url = "http://136.145.59.111:9000/login";
 var app = angular.module('transinfoLogin',[]);
 app.controller('LoginController',function($scope,$http){
 
+  app.config(function ($httpProvider) {
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
+  });
  var message = "";
 
   var config = {
