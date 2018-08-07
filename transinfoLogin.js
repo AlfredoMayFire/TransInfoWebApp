@@ -25,6 +25,7 @@ app.controller('LoginController',function($scope,$http){
   app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};
     $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.get = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
   });
